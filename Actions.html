@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actions | FP-CryptoTrade</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <div class="logo-mark">
+                    <svg width="40" height="40" viewBox="0 0 40 40">
+                        <path d="M8,20 Q14,6 20,20 Q26,34 32,20" 
+                              stroke="#0A84FF" 
+                              stroke-width="2" 
+                              fill="none"/>
+                    </svg>
+                    <span class="logo-text">FP<span class="logo-accent">CryptoTrade</span></span>
+                </div>
+            </a>
+            
+            <div class="nav-menu">
+                <a href="dashboard.html">Dashboard</a>
+                <a href="trade.html">Trade</a>
+                <a href="wallet.html">Wallet</a>
+                <a href="market.html">Market</a>
+                <a href="actions.html" class="active">Actions</a>
+                <div class="nav-auth">
+                    <!-- Will be populated by JavaScript -->
+                </div>
+            </div>
+            
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Actions Main Content -->
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="dashboard-sidebar">
+            <div class="sidebar-user">
+                <div class="user-avatar-large">
+                    <i class="fas fa-user-circle"></i>
+                </div>
+                <h3 id="userName">Loading...</h3>
+                <p id="userEmail">user@example.com</p>
+                <div class="user-tier">
+                    <span class="tier-badge">Trading</span>
+                    <div class="tier-progress">
+                        <div class="progress-bar" style="width: 65%"></div>
+                    </div>
+                    <span class="tier-text">65% to Advanced</span>
+                </div>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <a href="dashboard.html">
+                    <i class="fas fa-tachometer-alt"></i>
+                    Dashboard
+                </a>
+                <a href="trade.html">
+                    <i class="fas fa-exchange-alt"></i>
+                    Trade
+                </a>
+                <a href="wallet.html">
+                    <i class="fas fa-wallet"></i>
+                    Wallet
+                </a>
+                <a href="portfolio.html">
+                    <i class="fas fa-chart-pie"></i>
+                    Portfolio
+                </a>
+                <a href="actions.html" class="active">
+                    <i class="fas fa-bolt"></i>
+                    Actions
+                </a>
+                <a href="staking.html">
+                    <i class="fas fa-coins"></i>
+                    Staking
+                </a>
+                <a href="farming.html">
+                    <i class="fas fa-tractor"></i>
+                    Yield Farming
+                </a>
+                <a href="bot.html">
+                    <i class="fas fa-robot"></i>
+                    Trading Bot
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="dashboard-main">
+            <!-- Actions Header -->
+            <div class="actions-header">
+                <div class="header-content">
+                    <h1>Smart Actions</h1>
+                    <p>Automate your trading and maximize returns with our intelligent tools</p>
+                </div>
+                <div class="header-stats">
+                    <div class="stat">
+                        <span class="stat-value">$8,450</span>
+                        <span class="stat-label">Auto-Trading Volume</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value positive">+12.5%</span>
+                        <span class="stat-label">Avg. ROI</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value">15</span>
+                        <span class="stat-label">Active Actions</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Featured Actions -->
+            <div class="featured-actions">
+                <h2>Featured Actions</h2>
+                <div class="actions-grid">
+                    <div class="action-card premium">
+                        <div class="action-badge">Premium</div>                        <div class="action-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h3>AI Trading Bot</h3>
+                        <p>Advanced AI-powered bot that analyzes market trends and executes trades automatically 24/7.</p>
+                        <div class="action-stats">
+                            <div class="stat">
+                                <span class="label">Avg. ROI</span>
+                                <span class="value positive">+18.2%</span>
+                            </div>
+                            <div class="stat">
+                                <span class="label">Risk Level</span>
+                                <span class="value">Medium</span>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary btn-block">
+                            <i class="fas fa-play"></i> Activate Bot
+                        </button>
+                    </div>
+
+                    <div class="action-card new">
+                        <div class="action-badge">New</div>
+                        <div class="action-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>Grid Trading</h3>
+                        <p>Automated grid trading strategy that places buy and sell orders at predefined price levels.</p>
+                        <div class="action-stats">
+                            <div class="stat">
+                                <span class="label">Avg. ROI</span>
+                                <span class="value positive">+9.8%</span>
+                            </div>
+                            <div class="stat">
+                                <span class="label">Risk Level</span>
+                                <span class="value">Low</span>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary btn-block">
+                            <i class="fas fa-cog"></i> Configure Grid
+                        </button>
+                    </div>
+
+                    <div class="action-card popular">
+                        <div class="action-badge">Popular</div>
+                        <div class="action-icon">
+                            <i class="fas fa-coins"></i>
+                        </div>
+                        <h3>Yield Farming</h3>
+                        <p>Earn passive income by providing liquidity to trading pairs and earning trading fees.</p>
+                        <div class="action-stats">
+                            <div class="stat">
+                                <span class="label">Avg. APY</span>
+                                <span class="value positive">+24.5%</span>
+                            </div>
+                            <div class="stat">
+                                <span class="label">Risk Level</span>
+                                <span class="value">High</span>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary btn-block">
+                            <i class="fas fa-seedling"></i> Start Farming
+                        </button>
+                    </div>
+
+                    <div class="action-card">
+                        <div class="action-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>Stop-Loss Automation</h3>
+                        <p>Automatically trigger stop-loss orders to protect your investments during market drops.</p>
+                        <div class="action-stats">
+                            <div class="stat">
+                                <span class="label">Protection</span>
+                                <span class="value">95%</span>
+                            </div>
+                            <div class="stat">
+                                <span class="label">Success Rate</span>
+                                <span class="value">98%</span>
+                            </div>
+                        </div>
+                        <button class="btn btn-outline btn-block">
+                            <i class="fas fa-shield-alt"></i> Set Protection
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Active Actions -->
+            <div class="active-actions">
+                <div class="section-header">
+                    <h2>Your Active Actions</h2>
+                    <button class="btn btn-primary">
+                        <i class="fas fa-plus"></i> Create New Action
+                    </button>
+                </div>
+
+                <div class="actions-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Action</th>
+                                <th>Type</th>
+                                <th>Asset</th>
+                                <th>Amount</th>
+                                <th>Profit/Loss</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="action-info">
+                                        <div class="action-icon-sm">
+                                            <i class="fas fa-robot"></i>
+                                        </div>
+                                        <div>
+                                            <strong>AI Bot: Aggressive</strong>
+                                            <span class="action-date">Started 2 days ago</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>Trading Bot</td>
+                                <td>BTC, ETH</td>
+                                <td>$2,500</td>
+                                <td><span class="profit positive">+$342.50</span></td>
+                                <td><span class="status active">Running</span></td>
+                                <td>
+                                    <div class="action-buttons">
+                                        <button class="btn-icon" title="Pause">
+                                            <i class="fas fa-pause"></i>
+                                        </button>
+                                        <button class="btn-icon" title="Edit">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="btn-icon" title="Stop">
+                                            <i class="fas fa-stop"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="action-info">
+                                        <div class="action-icon-sm">
+                                            <i class="fas fa-chart-line"></i>
+                                        </div>
+                                        <div>
+                                            <strong>Grid Trading</strong>
+                                            <span class="action-date">Started 1 week ago</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>Grid Trading</td>
+                                <td>ETH/USD</td>
+                                <td>$1,800</td>
+                                <td><span class="profit positive">+$125.30</span></td>
+                                <td><span class="status active">Running</span></td>
+                                <td>
+                                    <div class="action-buttons">
+                                        <button class="btn-icon" title="Pause">
+                                            <i class="fas fa-pause"></i>
+                                        </button>
+                                        <button class="btn-icon" title="Edit">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="btn-icon" title="Stop">
+                                            <i class="fas fa-stop"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="action-info">
+                                        <div class="action-icon-sm">
+                                            <i class="fas fa-coins"></i>
+                                        </div>
+                                        <div>
+                                            <strong>Yield Farm</strong>
+                                            <span class="action-date">Started 1 month ago</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>Yield Farming</td>
+                                <td>USDC/ETH</td>
+                                <td>$5,000</td>
+                                <td><span class="profit positive">+$245.80</span></td>
+                                <td><span class="status active">Running</span></td>
+                                <td>
+                                    <div class="action-buttons">
+                                        <button class="btn-icon" title="Pause">
+                                            <i class="fas fa-pause"></i>
+                                        </button>
+                                        <button class="btn-icon" title="Edit">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="btn-icon" title="Stop">
+                                            <i class="fas fa-stop"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="action-info">
+                                        <div class="action-icon-sm">
+                                            <i class="fas fa-shield-alt"></i>
+                                        </div>
+                                        <div>
+                                            <strong>Stop-Loss Guard</strong>
+                                            <span class="action-date">Always Active</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>Protection</td>
+                                <td>All Assets</td>
+                                <td>N/A</td>
+                                <td><span class="profit neutral">-$0.00</span></td>
+                                <td><span class="status monitoring">Monitoring</span></td>
+                                <td>
+                                    <div class="action-buttons">
+                                        <button class="btn-icon" title="Edit">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="btn-icon" title="Disable">
+                                            <i class="fas fa-ban"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Action Templates -->
+            <div class="action-templates">
+                <h2>Quick Setup Templates</h2>
+                <div class="templates-grid">
+                    <div class="template-card">
+                        <h3>Beginner's DCA</h3>
+                        <p>Dollar-cost averaging strategy for conservative investors.</p>
+                        <div class="template-tags">
+                            <span class="tag">Low Risk</span>
+                            <span class="tag">Set & Forget</span>
+                        </div>
+                        <button class="btn btn-outline btn-block">
+                            <i class="fas fa-magic"></i> Apply Template
+                        </button>
+                    </div>
+                    <div class="template-card">
+                        <h3>Swing Trading Pro</h3>
+                        <p>Automated swing trading for intermediate traders.</p>
+                        <div class="template-tags">
+                            <span class="tag">Medium Risk</span>
+                            <span class="tag">High Reward</span>
+                        </div>
+                        <button class="btn btn-outline btn-block">
+                            <i class="fas fa-magic"></i> Apply Template
+                        </button>
+                    </div>
+                    <div class="template-card">
+                        <h3>Arbitrage Bot</h3>
+                        <p>Profit from price differences across exchanges.</p>
+                        <div class="template-tags">
+                            <span class="tag">Advanced</span>
+                            <span class="tag">High Frequency</span>
+                        </div>
+                        <button class="btn btn-outline btn-block">
+                            <i class="fas fa-magic"></i> Apply Template
+                        </button>
+                    </div>
+                    <div class="template-card">
+                        <h3>Staking Portfolio</h3>
+                        <p>Automated staking across multiple cryptocurrencies.</p>
+                        <div class="template-tags">
+                            <span class="tag">Passive Income</span>
+                            <span class="tag">Compound</span>
+                        </div>
+                        <button class="btn btn-outline btn-block">
+                            <i class="fas fa-magic"></i> Apply Template
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Performance Analytics -->
+            <div class="performance-analytics">
+                <div class="section-header">
+                    <h2>Action Performance</h2>
+                    <div class="time-filters">
+                        <button class="time-filter active">1W</button>
+                        <button class="time-filter">1M</button>
+                        <button class="time-filter">3M</button>
+                        <button class="time-filter">1Y</button>
+                    </div>
+                </div>
+                <div class="performance-chart">
+                    <canvas id="performanceChart"></canvas>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <svg width="30" height="30" viewBox="0 0 30 30">
+                            <path d="M6,15 Q11,3 15,15 Q19,27 24,15" 
+                                  stroke="#00D4AA" 
+                                  stroke-width="2" 
+                                  fill="none"/>
+                        </svg>
+                        <span>FP<span style="color:#0A84FF">CryptoTrade</span></span>
+                    </div>
+                    <p>Automate Your Trading Success</p>
+                </div>
+                <div class="footer-links">
+                    <div class="link-group">
+                        <h4>Actions</h4>
+                        <a href="actions.html">Trading Bots</a>
+                        <a href="staking.html">Staking</a>
+                        <a href="farming.html">Yield Farming</a>
+                        <a href="portfolio.html">Portfolio</a>
+                    </div>
+                    <div class="link-group">
+                        <h4>Resources</h4>
+                        <a href="learn.html">Learn</a>
+                        <a href="strategies.html">Strategies</a>
+                        <a href="api.html">API</a>
+                        <a href="status.html">System Status</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 FP-CryptoTrade. All rights reserved.</p>
+                <p>Trading involves risk. Past performance is not indicative of future results.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="actions.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</body>
+</html>

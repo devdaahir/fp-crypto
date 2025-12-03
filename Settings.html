@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings | FP-CryptoTrade</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="settings.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <div class="logo-mark">
+                    <svg width="40" height="40" viewBox="0 0 40 40">
+                        <path d="M8,20 Q14,6 20,20 Q26,34 32,20" 
+                              stroke="#0A84FF" 
+                              stroke-width="2" 
+                              fill="none"/>
+                    </svg>
+                    <span class="logo-text">FP<span class="logo-accent">CryptoTrade</span></span>
+                </div>
+            </a>
+            
+            <div class="nav-menu">
+                <a href="dashboard.html">Dashboard</a>
+                <a href="trade.html">Trade</a>
+                <a href="wallet.html">Wallet</a>
+                <a href="market.html">Market</a>
+                <a href="settings.html" class="active">Settings</a>
+                <div class="nav-auth">
+                    <!-- Will be populated by JavaScript -->
+                </div>
+            </div>
+            
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <div class="settings-container">
+        <div class="settings-header">
+            <h1>Settings</h1>
+            <p>Manage your account preferences and security settings</p>
+        </div>
+
+        <div class="settings-layout">
+            <div class="settings-sidebar">
+                <div class="sidebar-nav">
+                    <button class="nav-item active" data-section="profile">
+                        <i class="fas fa-user"></i>
+                        <span>Profile</span>
+                    </button>
+                    <button class="nav-item" data-section="security">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Security</span>
+                    </button>
+                    <button class="nav-item" data-section="notifications">
+                        <i class="fas fa-bell"></i>
+                        <span>Notifications</span>
+                    </button>
+                    <button class="nav-item" data-section="trading">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Trading</span>
+                    </button>
+                    <button class="nav-item" data-section="api">
+                        <i class="fas fa-key"></i>
+                        <span>API Keys</span>
+                    </button>
+                    <button class="nav-item" data-section="preferences">
+                        <i class="fas fa-cog"></i>
+                        <span>Preferences</span>
+                    </button>
+                    <button class="nav-item" data-section="privacy">
+                        <i class="fas fa-lock"></i>
+                        <span>Privacy</span>
+                    </button>
+                </div>
+                
+                <div class="sidebar-footer">
+                    <button class="btn-logout">
+                        <i class="fas fa-sign-out-alt"></i>
+                        Logout
+                    </button>
+                </div>
+            </div>
+
+            <div class="settings-content">
+                <!-- Profile Section -->
+                <div class="settings-section active" id="profile-section">
+                    <h2>Profile Settings</h2>
+                    <div class="profile-header">
+                        <div class="avatar-upload">
+                            <div class="avatar-preview">
+                                <i class="fas fa-user-circle"></i>
+                            </div>
+                            <button class="btn-upload">Upload Photo</button>
+                        </div>
+                        <div class="profile-info">
+                            <h3>John Doe</h3>
+                            <p>Verified Account • Member since Jan 2023</p>
+                        </div>
+                    </div>
+                    
+                    <form class="settings-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>First Name</label>
+                                <input type="text" value="John">
+                            </div>
+                            <div class="form-group">
+                                <label>Last Name</label>
+                                <input type="text" value="Doe">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Email Address</label>
+                            <input type="email" value="john.doe@example.com">
+                            <div class="email-status">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Verified</span>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Phone Number</label>
+                            <div class="phone-input">
+                                <select>
+                                    <option>+1</option>
+                                    <option>+44</option>
+                                    <option>+91</option>
+                                </select>
+                                <input type="tel" value="(555) 123-4567">
+                            </div>
+                            <div class="phone-status">
+                                <i class="fas fa-times-circle"></i>
+                                <span>Not Verified</span>
+                                <button class="btn-verify">Verify Now</button>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Country</label>
+                            <select>
+                                <option>United States</option>
+                                <option>United Kingdom</option>
+                                <option>Canada</option>
+                                <option>Australia</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-outline">Cancel</button>
+                            <button type="submit" class="btn btn-primary">Save Changes</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Security Section -->
+                <div class="settings-section" id="security-section">
+                    <h2>Security Settings</h2>
+                    <div class="security-items">
+                        <div class="security-item">
+                            <div class="security-info">
+                                <h3>Two-Factor Authentication</h3>
+                                <p>Add an extra layer of security to your account</p>
+                            </div>
+                            <div class="security-action">
+                                <span class="status enabled">Enabled</span>
+                                <button class="btn-manage">Manage</button>
+                            </div>
+                        </div>
+                        
+                        <div class="security-item">
+                            <div class="security-info">
+                                <h3>Password</h3>
+                                <p>Last changed 30 days ago</p>
+                            </div>
+                            <div class="security-action">
+                                <button class="btn-change">Change Password</button>
+                            </div>
+                        </div>
+                        
+                        <div class="security-item">
+                            <div class="security-info">
+                                <h3>Login History</h3>
+                                <p>View recent account activity</p>
+                            </div>
+                            <div class="security-action">
+                                <button class="btn-view">View History</button>
+                            </div>
+                        </div>
+                        
+                        <div class="security-item">
+                            <div class="security-info">
+                                <h3>Session Management</h3>
+                                <p>Manage active sessions and devices</p>
+                            </div>
+                            <div class="security-action">
+                                <button class="btn-manage">Manage Sessions</button>
+                            </div>
+                        </div>
+                        
+                        <div class="security-item">
+                            <div class="security-info">
+                                <h3>Withdrawal Whitelist</h3>
+                                <p>Restrict withdrawals to trusted addresses</p>
+                            </div>
+                            <div class="security-action">
+                                <span class="status disabled">Disabled</span>
+                                <button class="btn-enable">Enable</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Notifications Section -->
+                <div class="settings-section" id="notifications-section">
+                    <h2>Notification Preferences</h2>
+                    <div class="notification-categories">
+                        <div class="category">
+                            <h3>Email Notifications</h3>
+                            <div class="notification-options">
+                                <label class="switch">
+                                    <input type="checkbox" checked>
+                                    <span class="slider"></span>
+                                    <span class="label">Security Alerts</span>
+                                </label>
+                                <label class="switch">
+                                    <input type="checkbox" checked>
+                                    <span class="slider"></span>
+                                    <span class="label">Deposit/Withdrawal Confirmation</span>
+                                </label>
+                                <label class="switch">
+                                    <input type="checkbox" checked>
+                                    <span class="slider"></span>
+                                    <span class="label">Trade Executions</span>
+                                </label>
+                                <label class="switch">
+                                    <input type="checkbox">
+                                    <span class="slider"></span>
+                                    <span class="label">Market Updates</span>
+                                </label>
+                                <label class="switch">
+                                    <input type="checkbox" checked>
+                                    <span class="slider"></span>
+                                    <span class="label">Account Statements</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="category">
+                            <h3>Push Notifications</h3>
+                            <div class="notification-options">
+                                <label class="switch">
+                                    <input type="checkbox" checked>
+                                    <span class="slider"></span>
+                                    <span class="label">Price Alerts</span>
+                                </label>
+                                <label class="switch">
+                                    <input type="checkbox">
+                                    <span class="slider"></span>
+                                    <span class="label">Order Fills</span>
+                                </label>
+                                <label class="switch">
+                                    <input type="checkbox" checked>
+                                    <span class="slider"></span>
+                                    <span class="label">Security Events</span>
+                                </label>
+                                <label class="switch">
+                                    <input type="checkbox">
+                                    <span class="slider"></span>
+                                    <span class="label">Promotional Offers</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="category">
+                            <h3>SMS Notifications</h3>
+                            <div class="notification-options">
+                                <label class="switch">
+                                    <input type="checkbox">
+                                    <span class="slider"></span>
+                                    <span class="label">Withdrawal Confirmations</span>
+                                </label>
+                                <label class="switch">
+                                    <input type="checkbox">
+                                    <span class="slider"></span>
+                                    <span class="label">Login Alerts</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Trading Section -->
+                <div class="settings-section" id="trading-section">
+                    <h2>Trading Preferences</h2>
+                    <form class="settings-form">
+                        <div class="form-group">
+                            <label>Default Order Type</label>
+                            <select>
+                                <option>Market</option>
+                                <option selected>Limit</option>
+                                <option>Stop Limit</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Default Time in Force</label>
+                            <select>
+                                <option selected>Good Till Cancelled (GTC)</option>
+                                <option>Immediate or Cancel (IOC)</option>
+                                <option>Fill or Kill (FOK)</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Post Only Orders</label>
+                            <div class="toggle-group">
+                                <label class="switch">
+                                    <input type="checkbox">
+                                    <span class="slider"></span>
+                                </label>
+                                <span class="toggle-label">Only place orders that add liquidity</span>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Default Confirmation</label>
+                            <div class="toggle-group">
+                                <label class="switch">
+                                    <input type="checkbox" checked>
+                                    <span class="slider"></span>
+                                </label>
+                                <span class="toggle-label">Require confirmation for all trades</span>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Risk Warning Level</label>
+                            <select>
+                                <option>Low (Conservative)</option>
+                                <option selected>Medium (Balanced)</option>
+                                <option>High (Aggressive)</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Leverage Settings</label>
+                            <div class="leverage-slider">
+                                <input type="range" min="1" max="100" value="10">
+                                <div class="leverage-value">
+                                    <span>1x</span>
+                                    <span>10x</span>
+                                    <span>100x</span>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- API Keys Section -->
+                <div class="settings-section" id="api-section">
+                    <h2>API Keys Management</h2>
+                    <div class="api-header">
+                        <p>API keys allow third-party applications to access your account</p>
+                        <button class="btn btn-primary" id="createApiKeyBtn">
+                            <i class="fas fa-plus"></i> Create New API Key
+                        </button>
+                    </div>
+                    
+                    <div class="api-keys-list">
+                        <div class="api-key-item">
+                            <div class="api-key-info">
+                                <h3>Trading Bot v2.0</h3>
+                                <div class="key-details">
+                                    <span class="key-preview">b5f28*</span>
+                                    <span class="key-date">Created: Jan 10, 2024</span>
+                                </div>
+                                <div class="key-permissions">
+                                    <span class="permission">Read</span>
+                                    <span class="permission">Trade</span>
+                                    <span class="permission">Withdraw</span>
+                                </div>
+                            </div>
+                            <div class="api-key-actions">
+                                <button class="btn-action view">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                                <button class="btn-action edit">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="btn-action delete">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="api-key-item">
+                            <div class="api-key-info">
+                                <h3>Portfolio Tracker</h3>
+                                <div class="key-details">
+                                    <span class="key-preview">c9a13*</span>
+                                    <span class="key-date">Created: Dec 15, 2023</span>
+                                </div>
+                                <div class="key-permissions">
+                                    <span class="permission">Read</span>
+                                </div>
+                            </div>
+                            <div class="api-key-actions">
+                                <button class="btn-action view">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                                <button class="btn-action edit">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="btn-action delete">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="api-security">
+                        <h3>Security Guidelines</h3>
+                        <ul class="security-list">
+                            <li>Never share your API keys with anyone</li>
+                            <li>Use IP whitelisting for added security</li>
+                            <li>Regularly rotate your API keys</li>
+                            <li>Only grant necessary permissions</li>
+                            <li>Monitor API usage regularly</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="settings.js"></script>
+</body>
+</html>

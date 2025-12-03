@@ -1,0 +1,411 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | FP-CryptoTrade</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="portfolio.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <div class="logo-mark">
+                    <svg width="40" height="40" viewBox="0 0 40 40">
+                        <path d="M8,20 Q14,6 20,20 Q26,34 32,20" 
+                              stroke="#0A84FF" 
+                              stroke-width="2" 
+                              fill="none"/>
+                    </svg>
+                    <span class="logo-text">FP<span class="logo-accent">CryptoTrade</span></span>
+                </div>
+            </a>
+            
+            <div class="nav-menu">
+                <a href="dashboard.html">Dashboard</a>
+                <a href="trade.html">Trade</a>
+                <a href="wallet.html">Wallet</a>
+                <a href="portfolio.html" class="active">Portfolio</a>
+                <a href="actions.html">Actions</a>
+                <div class="nav-auth">
+                    <!-- Will be populated by JavaScript -->
+                </div>
+            </div>
+            
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <div class="portfolio-container">
+        <div class="portfolio-header">
+            <div class="header-content">
+                <h1>Portfolio Overview</h1>
+                <div class="time-filters">
+                    <button class="time-filter active">1D</button>
+                    <button class="time-filter">1W</button>
+                    <button class="time-filter">1M</button>
+                    <button class="time-filter">3M</button>
+                    <button class="time-filter">1Y</button>
+                    <button class="time-filter">ALL</button>
+                </div>
+            </div>
+            <div class="portfolio-stats">
+                <div class="stat">
+                    <span class="stat-value">$12,450.75</span>
+                    <span class="stat-label">Total Value</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-value positive">+$342.50</span>
+                    <span class="stat-label">24h Change</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-value positive">+8.2%</span>
+                    <span class="stat-label">Total Return</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-value">5</span>
+                    <span class="stat-label">Assets</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="portfolio-grid">
+            <div class="chart-section">
+                <div class="chart-header">
+                    <h2>Portfolio Performance</h2>
+                    <div class="chart-legend">
+                        <div class="legend-item">
+                            <span class="legend-color" style="background: #0A84FF;"></span>
+                            <span>Portfolio Value</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-color" style="background: #10B981;"></span>
+                            <span>Bitcoin</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="chart-container">
+                    <canvas id="portfolioChart"></canvas>
+                </div>
+            </div>
+
+            <div class="allocation-section">
+                <div class="section-header">
+                    <h2>Asset Allocation</h2>
+                    <button class="btn-rebalance">Rebalance</button>
+                </div>
+                <div class="allocation-chart">
+                    <canvas id="allocationChart"></canvas>
+                </div>
+                <div class="allocation-details">
+                    <div class="allocation-item">
+                        <div class="asset-info">
+                            <div class="asset-color" style="background: #F7931A;"></div>
+                            <span>Bitcoin</span>
+                        </div>
+                        <div class="allocation-stats">
+                            <span class="percentage">42.7%</span>
+                            <span class="value">$5,320.98</span>
+                        </div>
+                    </div>
+                    <div class="allocation-item">
+                        <div class="asset-info">
+                            <div class="asset-color" style="background: #627EEA;"></div>
+                            <span>Ethereum</span>
+                        </div>
+                        <div class="allocation-stats">
+                            <span class="percentage">47.1%</span>
+                            <span class="value">$5,864.18</span>
+                        </div>
+                    </div>
+                    <div class="allocation-item">
+                        <div class="asset-info">
+                            <div class="asset-color" style="background: #26A17B;"></div>
+                            <span>US Dollar</span>
+                        </div>
+                        <div class="allocation-stats">
+                            <span class="percentage">10.0%</span>
+                            <span class="value">$1,250.75</span>
+                        </div>
+                    </div>
+                    <div class="allocation-item">
+                        <div class="asset-info">
+                            <div class="asset-color" style="background: #00D4AA;"></div>
+                            <span>Solana</span>
+                        </div>
+                        <div class="allocation-stats">
+                            <span class="percentage">9.9%</span>
+                            <span class="value">$1,234.50</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="portfolio-table">
+            <div class="table-header">
+                <h2>Holdings</h2>
+                <div class="table-controls">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Search assets...">
+                    </div>
+                    <select class="sort-select">
+                        <option value="value">Sort by Value</option>
+                        <option value="gain">Sort by Gain</option>
+                        <option value="allocation">Sort by Allocation</option>
+                    </select>
+                </div>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Asset</th>
+                        <th>Holdings</th>
+                        <th>Avg. Buy Price</th>
+                        <th>Current Price</th>
+                        <th>P/L</th>
+                        <th>Allocation</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <div class="asset-cell">
+                                <div class="asset-icon">
+                                    <i class="fab fa-bitcoin"></i>
+                                </div>
+                                <div>
+                                    <span class="asset-name">Bitcoin</span>
+                                    <span class="asset-symbol">BTC</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <span class="holding-amount">0.125 BTC</span>
+                            <span class="holding-value">$5,320.98</span>
+                        </td>
+                        <td>$42,300.00</td>
+                        <td>$42,567.89</td>
+                        <td>
+                            <div class="pl-cell">
+                                <span class="pl-amount positive">+$33.49</span>
+                                <span class="pl-percent positive">+0.79%</span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="allocation-bar">
+                                <div class="bar-fill" style="width: 42.7%; background: #F7931A;"></div>
+                            </div>
+                            <span class="allocation-percent">42.7%</span>
+                        </td>
+                        <td>
+                            <div class="action-buttons">
+                                <button class="btn-action buy">Buy</button>
+                                <button class="btn-action sell">Sell</button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="asset-cell">
+                                <div class="asset-icon">
+                                    <i class="fab fa-ethereum"></i>
+                                </div>
+                                <div>
+                                    <span class="asset-name">Ethereum</span>
+                                    <span class="asset-symbol">ETH</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <span class="holding-amount">2.5 ETH</span>
+                            <span class="holding-value">$5,864.18</span>
+                        </td>
+                        <td>$2,300.00</td>
+                        <td>$2,345.67</td>
+                        <td>
+                            <div class="pl-cell">
+                                <span class="pl-amount positive">+$114.18</span>
+                                <span class="pl-percent positive">+1.98%</span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="allocation-bar">
+                                <div class="bar-fill" style="width: 47.1%; background: #627EEA;"></div>
+                            </div>
+                            <span class="allocation-percent">47.1%</span>
+                        </td>
+                        <td>
+                            <div class="action-buttons">
+                                <button class="btn-action buy">Buy</button>
+                                <button class="btn-action sell">Sell</button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="asset-cell">
+                                <div class="asset-icon usd">
+                                    <i class="fas fa-dollar-sign"></i>
+                                </div>
+                                <div>
+                                    <span class="asset-name">US Dollar</span>
+                                    <span class="asset-symbol">USD</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <span class="holding-amount">$1,250.75</span>
+                            <span class="holding-value">$1,250.75</span>
+                        </td>
+                        <td>$1.00</td>
+                        <td>$1.00</td>
+                        <td>
+                            <div class="pl-cell">
+                                <span class="pl-amount neutral">$0.00</span>
+                                <span class="pl-percent neutral">0.00%</span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="allocation-bar">
+                                <div class="bar-fill" style="width: 10.0%; background: #26A17B;"></div>
+                            </div>
+                            <span class="allocation-percent">10.0%</span>
+                        </td>
+                        <td>
+                            <div class="action-buttons">
+                                <button class="btn-action deposit">Deposit</button>
+                                <button class="btn-action withdraw">Withdraw</button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="asset-cell">
+                                <div class="asset-icon">
+                                    <i class="fas fa-gem"></i>
+                                </div>
+                                <div>
+                                    <span class="asset-name">Solana</span>
+                                    <span class="asset-symbol">SOL</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <span class="holding-amount">12.5 SOL</span>
+                            <span class="holding-value">$1,234.50</span>
+                        </td>
+                        <td>$95.00</td>
+                        <td>$98.76</td>
+                        <td>
+                            <div class="pl-cell">
+                                <span class="pl-amount positive">+$47.00</span>
+                                <span class="pl-percent positive">+3.96%</span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="allocation-bar">
+                                <div class="bar-fill" style="width: 9.9%; background: #00D4AA;"></div>
+                            </div>
+                            <span class="allocation-percent">9.9%</span>
+                        </td>
+                        <td>
+                            <div class="action-buttons">
+                                <button class="btn-action buy">Buy</button>
+                                <button class="btn-action sell">Sell</button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="portfolio-insights">
+            <div class="insight-card">
+                <div class="insight-header">
+                    <h3><i class="fas fa-chart-line"></i> Performance Insights</h3>
+                </div>
+                <div class="insight-content">
+                    <div class="insight-item">
+                        <span>Best Performing Asset</span>
+                        <span class="insight-value positive">SOL +3.96%</span>
+                    </div>
+                    <div class="insight-item">
+                        <span>Worst Performing Asset</span>
+                        <span class="insight-value neutral">USD 0.00%</span>
+                    </div>
+                    <div class="insight-item">
+                        <span>Portfolio Beta</span>
+                        <span class="insight-value">1.2</span>
+                    </div>
+                    <div class="insight-item">
+                        <span>Sharpe Ratio</span>
+                        <span class="insight-value positive">2.1</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="insight-card">
+                <div class="insight-header">
+                    <h3><i class="fas fa-lightbulb"></i> Recommendations</h3>
+                </div>
+                <div class="insight-content">
+                    <div class="recommendation">
+                        <i class="fas fa-check-circle"></i>
+                        <p>Consider rebalancing to maintain target allocations</p>
+                    </div>
+                    <div class="recommendation">
+                        <i class="fas fa-chart-pie"></i>
+                        <p>Add more diversification with DeFi tokens</p>
+                    </div>
+                    <div class="recommendation">
+                        <i class="fas fa-shield-alt"></i>
+                        <p>Consider staking your ETH for 4-6% APY</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="insight-card">
+                <div class="insight-header">
+                    <h3><i class="fas fa-bullseye"></i> Risk Metrics</h3>
+                </div>
+                <div class="insight-content">
+                    <div class="risk-meter">
+                        <div class="meter-label">
+                            <span>Portfolio Risk</span>
+                            <span>Medium</span>
+                        </div>
+                        <div class="meter-bar">
+                            <div class="meter-fill" style="width: 65%;"></div>
+                        </div>
+                    </div>
+                    <div class="risk-item">
+                        <span>Max Drawdown</span>
+                        <span class="risk-value">-12.5%</span>
+                    </div>
+                    <div class="risk-item">
+                        <span>Volatility (30d)</span>
+                        <span class="risk-value">24.8%</span>
+                    </div>
+                    <div class="risk-item">
+                        <span>Correlation to BTC</span>
+                        <span class="risk-value">0.85</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="portfolio.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</body>
+</html>

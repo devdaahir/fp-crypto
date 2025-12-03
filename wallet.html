@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wallet | FP-CryptoTrade</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="wallet.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <div class="logo-mark">
+                    <svg width="40" height="40" viewBox="0 0 40 40">
+                        <path d="M8,20 Q14,6 20,20 Q26,34 32,20" 
+                              stroke="#0A84FF" 
+                              stroke-width="2" 
+                              fill="none"/>
+                    </svg>
+                    <span class="logo-text">FP<span class="logo-accent">CryptoTrade</span></span>
+                </div>
+            </a>
+            
+            <div class="nav-menu">
+                <a href="dashboard.html">Dashboard</a>
+                <a href="trade.html">Trade</a>
+                <a href="wallet.html" class="active">Wallet</a>
+                <a href="market.html">Market</a>
+                <a href="actions.html">Actions</a>
+                <div class="nav-auth">
+                    <!-- Will be populated by JavaScript -->
+                </div>
+            </div>
+            
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <div class="wallet-container">
+        <div class="wallet-header">
+            <h1>Wallet</h1>
+            <div class="wallet-actions">
+                <button class="btn btn-primary" id="depositBtn">
+                    <i class="fas fa-plus"></i> Deposit
+                </button>
+                <button class="btn btn-outline" id="withdrawBtn">
+                    <i class="fas fa-download"></i> Withdraw
+                </button>
+                <button class="btn btn-outline" id="transferBtn">
+                    <i class="fas fa-exchange-alt"></i> Transfer
+                </button>
+            </div>
+        </div>
+
+        <div class="wallet-overview">
+            <div class="balance-card">
+                <div class="balance-header">
+                    <h3>Total Balance</h3>
+                    <button class="btn-eye">
+                        <i class="fas fa-eye"></i>
+                    </button>
+                </div>
+                <div class="balance-amount">
+                    <span class="amount">$12,450.75</span>
+                    <span class="change positive">+$342.50 (2.8%)</span>
+                </div>
+                <div class="balance-breakdown">
+                    <div class="breakdown-item">
+                        <span>Available</span>
+                        <span>$10,245.30</span>
+                    </div>
+                    <div class="breakdown-item">
+                        <span>In Orders</span>
+                        <span>$1,062.50</span>
+                    </div>
+                    <div class="breakdown-item">
+                        <span>Staked</span>
+                        <span>$1,142.95</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="wallet-stats">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-arrow-up"></i>
+                    </div>
+                    <div class="stat-info">
+                        <span class="stat-label">24h Deposit</span>
+                        <span class="stat-value">$2,500.00</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-arrow-down"></i>
+                    </div>
+                    <div class="stat-info">
+                        <span class="stat-label">24h Withdrawal</span>
+                        <span class="stat-value">$850.00</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-coins"></i>
+                    </div>
+                    <div class="stat-info">
+                        <span class="stat-label">Total Assets</span>
+                        <span class="stat-value">8</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="stat-info">
+                        <span class="stat-label">Security Level</span>
+                        <span class="stat-value">85%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="assets-section">
+            <div class="section-header">
+                <h2>Assets</h2>
+                <div class="asset-filters">
+                    <button class="filter-btn active">All</button>
+                    <button class="filter-btn">Favorites</button>
+                    <button class="filter-btn">Cryptocurrency</button>
+                    <button class="filter-btn">Stablecoins</button>
+                </div>
+            </div>
+
+            <div class="assets-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Asset</th>
+                            <th>Balance</th>
+                            <th>USD Value</th>
+                            <th>Price</th>
+                            <th>24h Change</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="asset-info">
+                                    <div class="asset-icon">
+                                        <i class="fab fa-bitcoin"></i>
+                                    </div>
+                                    <div>
+                                        <span class="asset-name">Bitcoin</span>
+                                        <span class="asset-symbol">BTC</span>
+                                    </div>
+                                    <button class="btn-favorite active">
+                                        <i class="fas fa-star"></i>
+                                    </button>
+                                </div>
+                            </td>
+                            <td>
+                                <span class="balance">0.125</span>
+                                <span class="balance-usd">$5,320.98</span>
+                            </td>
+                            <td>$5,320.98</td>
+                            <td>$42,567.89</td>
+                            <td><span class="change positive">+2.4%</span></td>
+                            <td>
+                                <div class="asset-actions">
+                                    <button class="btn-action deposit">
+                                        <i class="fas fa-plus"></i>
+                                    </button>
+                                    <button class="btn-action withdraw">
+                                        <i class="fas fa-download"></i>
+                                    </button>
+                                    <button class="btn-action trade">
+                                        <i class="fas fa-exchange-alt"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="asset-info">
+                                    <div class="asset-icon">
+                                        <i class="fab fa-ethereum"></i>
+                                    </div>
+                                    <div>
+                                        <span class="asset-name">Ethereum</span>
+                                        <span class="asset-symbol">ETH</span>
+                                    </div>
+                                    <button class="btn-favorite">
+                                        <i class="far fa-star"></i>
+                                    </button>
+                                </div>
+                            </td>
+                            <td>
+                                <span class="balance">2.5</span>
+                                <span class="balance-usd">$5,864.18</span>
+                            </td>
+                            <td>$5,864.18</td>
+                            <td>$2,345.67</td>
+                            <td><span class="change positive">+1.8%</span></td>
+                            <td>
+                                <div class="asset-actions">
+                                    <button class="btn-action deposit">
+                                        <i class="fas fa-plus"></i>
+                                    </button>
+                                    <button class="btn-action withdraw">
+                                        <i class="fas fa-download"></i>
+                                    </button>
+                                    <button class="btn-action trade">
+                                        <i class="fas fa-exchange-alt"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="asset-info">
+                                    <div class="asset-icon usd">
+                                        <i class="fas fa-dollar-sign"></i>
+                                    </div>
+                                    <div>
+                                        <span class="asset-name">US Dollar</span>
+                                        <span class="asset-symbol">USD</span>
+                                    </div>
+                                    <button class="btn-favorite">
+                                        <i class="far fa-star"></i>
+                                    </button>
+                                </div>
+                            </td>
+                            <td>
+                                <span class="balance">1,250.75</span>
+                                <span class="balance-usd">$1,250.75</span>
+                            </td>
+                            <td>$1,250.75</td>
+                            <td>$1.00</td>
+                            <td><span class="change neutral">0.0%</span></td>
+                            <td>
+                                <div class="asset-actions">
+                                    <button class="btn-action deposit">
+                                        <i class="fas fa-plus"></i>
+                                    </button>
+                                    <button class="btn-action withdraw">
+                                        <i class="fas fa-download"></i>
+                                    </button>
+                                    <button class="btn-action trade">
+                                        <i class="fas fa-exchange-alt"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="asset-info">
+                                    <div class="asset-icon">
+                                        <i class="fas fa-gem"></i>
+                                    </div>
+                                    <div>
+                                        <span class="asset-name">Solana</span>
+                                        <span class="asset-symbol">SOL</span>
+                                    </div>
+                                    <button class="btn-favorite active">
+                                        <i class="fas fa-star"></i>
+                                    </button>
+                                </div>
+                            </td>
+                            <td>
+                                <span class="balance">12.5</span>
+                                <span class="balance-usd">$1,234.50</span>
+                            </td>
+                            <td>$1,234.50</td>
+                            <td>$98.76</td>
+                            <td><span class="change positive">+5.2%</span></td>
+                            <td>
+                                <div class="asset-actions">
+                                    <button class="btn-action deposit">
+                                        <i class="fas fa-plus"></i>
+                                    </button>
+                                    <button class="btn-action withdraw">
+                                        <i class="fas fa-download"></i>
+                                    </button>
+                                    <button class="btn-action trade">
+                                        <i class="fas fa-exchange-alt"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="wallet-grid">
+            <div class="recent-transactions">
+                <div class="section-header">
+                    <h2>Recent Transactions</h2>
+                    <a href="history.html" class="view-all">View All</a>
+                </div>
+                <div class="transactions-list">
+                    <div class="transaction-item">
+                        <div class="transaction-icon deposit">
+                            <i class="fas fa-arrow-down"></i>
+                        </div>
+                        <div class="transaction-details">
+                            <div class="transaction-info">
+                                <span class="transaction-type">Deposit</span>
+                                <span class="transaction-time">2 min ago</span>
+                            </div>
+                            <div class="transaction-amount">
+                                <span class="amount">+$5,000.00</span>
+                                <span class="asset">USD</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="transaction-item">
+                        <div class="transaction-icon buy">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                        <div class="transaction-details">
+                            <div class="transaction-info">
+                                <span class="transaction-type">Buy BTC</span>
+                                <span class="transaction-time">1 hour ago</span>
+                            </div>
+                            <div class="transaction-amount">
+                                <span class="amount">-$1,062.50</span>
+                                <span class="asset">+0.025 BTC</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="transaction-item">
+                        <div class="transaction-icon withdraw">
+                            <i class="fas fa-arrow-up"></i>
+                        </div>
+                        <div class="transaction-details">
+                            <div class="transaction-info">
+                                <span class="transaction-type">Withdrawal</span>
+                                <span class="transaction-time">3 hours ago</span>
+                            </div>
+                            <div class="transaction-amount">
+                                <span class="amount">-$500.00</span>
+                                <span class="asset">USD</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="transaction-item">
+                        <div class="transaction-icon stake">
+                            <i class="fas fa-coins"></i>
+                        </div>
+                        <div class="transaction-details">
+                            <div class="transaction-info">
+                                <span class="transaction-type">Staking Reward</span>
+                                <span class="transaction-time">5 hours ago</span>
+                            </div>
+                            <div class="transaction-amount">
+                                <span class="amount">+$12.50</span>
+                                <span class="asset">ETH</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="wallet-security">
+                <div class="section-header">
+                    <h2>Wallet Security</h2>
+                </div>
+                <div class="security-items">
+                    <div class="security-item">
+                        <div class="security-info">
+                            <div class="security-icon">
+                                <i class="fas fa-key"></i>
+                            </div>
+                            <div>
+                                <h4>2FA Authentication</h4>
+                                <p>Enabled</p>
+                            </div>
+                        </div>
+                        <div class="security-status active">
+                            <i class="fas fa-check"></i>
+                        </div>
+                    </div>
+                    <div class="security-item">
+                        <div class="security-info">
+                            <div class="security-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4>Email Notifications</h4>
+                                <p>On for all transactions</p>
+                            </div>
+                        </div>
+                        <div class="security-status active">
+                            <i class="fas fa-check"></i>
+                        </div>
+                    </div>
+                    <div class="security-item">
+                        <div class="security-info">
+                            <div class="security-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <div>
+                                <h4>Withdrawal Whitelist</h4>
+                                <p>2 addresses</p>
+                            </div>
+                        </div>
+                        <div class="security-status">
+                            <button class="btn-enable">Enable</button>
+                        </div>
+                    </div>
+                    <div class="security-item">
+                        <div class="security-info">
+                            <div class="security-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div>
+                                <h4>Withdrawal Delay</h4>
+                                <p>24 hours</p>
+                            </div>
+                        </div>
+                        <div class="security-status">
+                            <button class="btn-configure">Configure</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="wallet.js"></script>
+</body>
+</html>

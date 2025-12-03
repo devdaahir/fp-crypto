@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trade | FP-CryptoTrade</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="trade.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <div class="logo-mark">
+                    <svg width="40" height="40" viewBox="0 0 40 40">
+                        <path d="M8,20 Q14,6 20,20 Q26,34 32,20" 
+                              stroke="#0A84FF" 
+                              stroke-width="2" 
+                              fill="none"/>
+                    </svg>
+                    <span class="logo-text">FP<span class="logo-accent">CryptoTrade</span></span>
+                </div>
+            </a>
+            
+            <div class="nav-menu">
+                <a href="dashboard.html">Dashboard</a>
+                <a href="trade.html" class="active">Trade</a>
+                <a href="wallet.html">Wallet</a>
+                <a href="market.html">Market</a>
+                <a href="actions.html">Actions</a>
+                <div class="nav-auth">
+                    <!-- Will be populated by JavaScript -->
+                </div>
+            </div>
+            
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <div class="trade-container">
+        <aside class="trade-sidebar">
+            <div class="market-selector">
+                <h3>Markets</h3>
+                <div class="market-search">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search markets...">
+                </div>
+                <div class="market-list">
+                    <div class="market-item active">
+                        <div class="market-info">
+                            <span class="market-symbol">BTC/USD</span>
+                            <span class="market-name">Bitcoin</span>
+                        </div>
+                        <div class="market-price">
+                            <span class="price">$42,567.89</span>
+                            <span class="change positive">+2.4%</span>
+                        </div>
+                    </div>
+                    <div class="market-item">
+                        <div class="market-info">
+                            <span class="market-symbol">ETH/USD</span>
+                            <span class="market-name">Ethereum</span>
+                        </div>
+                        <div class="market-price">
+                            <span class="price">$2,345.67</span>
+                            <span class="change positive">+1.8%</span>
+                        </div>
+                    </div>
+                    <div class="market-item">
+                        <div class="market-info">
+                            <span class="market-symbol">SOL/USD</span>
+                            <span class="market-name">Solana</span>
+                        </div>
+                        <div class="market-price">
+                            <span class="price">$98.76</span>
+                            <span class="change positive">+5.2%</span>
+                        </div>
+                    </div>
+                    <div class="market-item">
+                        <div class="market-info">
+                            <span class="market-symbol">ADA/USD</span>
+                            <span class="market-name">Cardano</span>
+                        </div>
+                        <div class="market-price">
+                            <span class="price">$0.45</span>
+                            <span class="change negative">-0.5%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="order-book">
+                <h3>Order Book</h3>
+                <div class="order-book-header">
+                    <span>Price (USD)</span>
+                    <span>Size</span>
+                    <span>Total</span>
+                </div>
+                <div class="order-book-list">
+                    <!-- Sell orders (red) -->
+                    <div class="order-row sell">
+                        <span class="price">42,600.00</span>
+                        <span class="size">0.25</span>
+                        <span class="total">10,650.00</span>
+                    </div>
+                    <div class="order-row sell">
+                        <span class="price">42,575.00</span>
+                        <span class="size">0.18</span>
+                        <span class="total">7,663.50</span>
+                    </div>
+                    <div class="order-row sell">
+                        <span class="price">42,550.00</span>
+                        <span class="size">0.32</span>
+                        <span class="total">13,616.00</span>
+                    </div>
+                    
+                    <!-- Market price -->
+                    <div class="market-price-row">
+                        <span class="current-price">$42,567.89</span>
+                        <span class="spread">Spread: $25.11</span>
+                    </div>
+                    
+                    <!-- Buy orders (green) -->
+                    <div class="order-row buy">
+                        <span class="price">42,535.00</span>
+                        <span class="size">0.45</span>
+                        <span class="total">19,140.75</span>
+                    </div>
+                    <div class="order-row buy">
+                        <span class="price">42,510.00</span>
+                        <span class="size">0.22</span>
+                        <span class="total">9,352.20</span>
+                    </div>
+                    <div class="order-row buy">
+                        <span class="price">42,500.00</span>
+                        <span class="size">0.15</span>
+                        <span class="total">6,375.00</span>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <main class="trade-main">
+            <div class="chart-section">
+                <div class="chart-header">
+                    <div class="chart-info">
+                        <h2>BTC/USD</h2>
+                        <div class="price-info">
+                            <span class="current-price">$42,567.89</span>
+                            <span class="price-change positive">+$1,023.45 (+2.4%)</span>
+                        </div>
+                    </div>
+                    <div class="chart-controls">
+                        <select class="timeframe-select">
+                            <option>1m</option>
+                            <option>5m</option>
+                            <option>15m</option>
+                            <option>1h</option>
+                            <option selected>4h</option>
+                            <option>1d</option>
+                            <option>1w</option>
+                        </select>
+                        <div class="chart-types">
+                            <button class="chart-type active"><i class="fas fa-chart-line"></i></button>
+                            <button class="chart-type"><i class="fas fa-chart-bar"></i></button>
+                            <button class="chart-type"><i class="fas fa-chart-area"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="chart-container">
+                    <canvas id="tradingChart"></canvas>
+                </div>
+            </div>
+
+            <div class="trade-interface">
+                <div class="trade-form">
+                    <div class="trade-tabs">
+                        <button class="trade-tab active" data-tab="market">Market</button>
+                        <button class="trade-tab" data-tab="limit">Limit</button>
+                        <button class="trade-tab" data-tab="stop">Stop</button>
+                    </div>
+                    
+                    <div class="trade-content">
+                        <!-- Market Order -->
+                        <div class="order-type active" id="market-order">
+                            <div class="order-form">
+                                <div class="form-group">
+                                    <label>Amount (BTC)</label>
+                                    <div class="input-with-slider">
+                                        <input type="number" id="marketAmount" value="0.1" step="0.01" min="0.0001">
+                                        <div class="amount-slider">
+                                            <input type="range" min="0" max="100" value="25">
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="price-summary">
+                                    <div class="summary-row">
+                                        <span>Estimated Price</span>
+                                        <span>$42,567.89</span>
+                                    </div>
+                                    <div class="summary-row">
+                                        <span>Total Cost</span>
+                                        <span>$4,256.79</span>
+                                    </div>
+                                    <div class="summary-row">
+                                        <span>Fee (0.1%)</span>
+                                        <span>$4.26</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="balance-info">
+                                    <span>Available: $12,450.75</span>
+                                    <button class="btn-max">MAX</button>
+                                </div>
+                                
+                                <div class="trade-buttons">
+                                    <button class="btn-buy">
+                                        <i class="fas fa-arrow-up"></i>
+                                        Buy BTC
+                                    </button>
+                                    <button class="btn-sell">
+                                        <i class="fas fa-arrow-down"></i>
+                                        Sell BTC
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Limit Order -->
+                        <div class="order-type" id="limit-order">
+                            <div class="order-form">
+                                <div class="form-group">
+                                    <label>Limit Price (USD)</label>
+                                    <input type="number" id="limitPrice" value="42500" step="1">
+                                </div>
+                                <div class="form-group">
+                                    <label>Amount (BTC)</label>
+                                    <input type="number" id="limitAmount" value="0.1" step="0.01">
+                                </div>
+                                <div class="trade-buttons">
+                                    <button class="btn-buy">Place Buy Order</button>
+                                    <button class="btn-sell">Place Sell Order</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Stop Order -->
+                        <div class="order-type" id="stop-order">
+                            <div class="order-form">
+                                <div class="form-group">
+                                    <label>Stop Price (USD)</label>
+                                    <input type="number" id="stopPrice" value="43000" step="1">
+                                </div>
+                                <div class="form-group">
+                                    <label>Amount (BTC)</label>
+                                    <input type="number" id="stopAmount" value="0.1" step="0.01">
+                                </div>
+                                <div class="trade-buttons">
+                                    <button class="btn-buy">Place Stop Buy</button>
+                                    <button class="btn-sell">Place Stop Sell</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="open-orders">
+                    <h3>Open Orders</h3>
+                    <div class="orders-list">
+                        <div class="order-item">
+                            <div class="order-info">
+                                <span class="order-type buy">BUY</span>
+                                <span class="order-symbol">BTC/USD</span>
+                                <span class="order-price">$42,500.00</span>
+                            </div>
+                            <div class="order-details">
+                                <span>0.025 BTC</span>
+                                <span class="order-status pending">Pending</span>
+                                <button class="btn-cancel">Cancel</button>
+                            </div>
+                        </div>
+                        <div class="order-item">
+                            <div class="order-info">
+                                <span class="order-type sell">SELL</span>
+                                <span class="order-symbol">ETH/USD</span>
+                                <span class="order-price">$2,350.00</span>
+                            </div>
+                            <div class="order-details">
+                                <span>1.5 ETH</span>
+                                <span class="order-status partial">Partial</span>
+                                <button class="btn-cancel">Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <aside class="trade-sidebar-right">
+            <div class="position-summary">
+                <h3>Position</h3>
+                <div class="position-info">
+                    <div class="position-item">
+                        <span>Position Size</span>
+                        <span>0.125 BTC</span>
+                    </div>
+                    <div class="position-item">
+                        <span>Avg. Entry</span>
+                        <span>$42,300.00</span>
+                    </div>
+                    <div class="position-item">
+                        <span>Current Value</span>
+                        <span>$5,320.98</span>
+                    </div>
+                    <div class="position-item">
+                        <span>Unrealized P/L</span>
+                        <span class="profit positive">+$33.49</span>
+                    </div>
+                    <div class="position-item">
+                        <span>Liquidation Price</span>
+                        <span>$38,670.00</span>
+                    </div>
+                </div>
+                <div class="position-actions">
+                    <button class="btn-close">Close Position</button>
+                </div>
+            </div>
+
+            <div class="recent-trades">
+                <h3>Recent Trades</h3>
+                <div class="trades-list">
+                    <div class="trade-item">
+                        <span class="trade-time">15:30:22</span>
+                        <span class="trade-price">$42,567.89</span>
+                        <span class="trade-size">0.12</span>
+                        <span class="trade-side buy">BUY</span>
+                    </div>
+                    <div class="trade-item">
+                        <span class="trade-time">15:29:45</span>
+                        <span class="trade-price">$42,565.50</span>
+                        <span class="trade-size">0.08</span>
+                        <span class="trade-side sell">SELL</span>
+                    </div>
+                    <div class="trade-item">
+                        <span class="trade-time">15:29:12</span>
+                        <span class="trade-price">$42,568.00</span>
+                        <span class="trade-size">0.25</span>
+                        <span class="trade-side buy">BUY</span>
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="trade.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</body>
+</html>

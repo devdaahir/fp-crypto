@@ -1,0 +1,621 @@
+/* Portfolio Page Styles */
+.portfolio-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 30px 20px;
+}
+
+.portfolio-header {
+    background: white;
+    border-radius: 16px;
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: var(--shadow);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.header-content h1 {
+    font-size: 2.5rem;
+    color: var(--dark);
+}
+
+.time-filters {
+    display: flex;
+    gap: 8px;
+    background: var(--light);
+    border-radius: 8px;
+    padding: 4px;
+}
+
+.time-filter {
+    padding: 8px 16px;
+    background: none;
+    border: none;
+    border-radius: 6px;
+    color: var(--gray);
+    font-family: var(--font-primary);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.time-filter:hover {
+    color: var(--primary);
+    background: white;
+}
+
+.time-filter.active {
+    background: var(--primary);
+    color: white;
+}
+
+.portfolio-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+}
+
+.portfolio-stats .stat {
+    text-align: center;
+}
+
+.portfolio-stats .stat-value {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 8px;
+}
+
+.portfolio-stats .stat-value.positive {
+    color: var(--success);
+}
+
+.portfolio-stats .stat-value.negative {
+    color: var(--danger);
+}
+
+.portfolio-stats .stat-label {
+    color: var(--gray);
+    font-size: 0.95rem;
+}
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.chart-section,
+.allocation-section {
+    background: white;
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: var(--shadow);
+}
+
+.chart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.chart-header h2 {
+    font-size: 1.5rem;
+    color: var(--dark);
+}
+
+.chart-legend {
+    display: flex;
+    gap: 20px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--gray);
+    font-size: 0.9rem;
+}
+
+.legend-color {
+    width: 12px;
+    height: 12px;
+    border-radius: 2px;
+}
+
+.chart-container {
+    height: 300px;
+    position: relative;
+}
+
+.allocation-section .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.allocation-section h2 {
+    font-size: 1.5rem;
+    color: var(--dark);
+}
+
+.btn-rebalance {
+    padding: 8px 16px;
+    background: var(--primary);
+    border: none;
+    border-radius: 6px;
+    color: white;
+    font-family: var(--font-primary);
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.btn-rebalance:hover {
+    background: #0077E6;
+}
+
+.allocation-chart {
+    height: 200px;
+    margin-bottom: 30px;
+}
+
+.allocation-details {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.allocation-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    background: var(--light);
+    border-radius: 8px;
+}
+
+.asset-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.asset-color {
+    width: 12px;
+    height: 12px;
+    border-radius: 2px;
+}
+
+.allocation-stats {
+    text-align: right;
+}
+
+.allocation-stats .percentage {
+    display: block;
+    font-weight: 600;
+    color: var(--dark);
+    margin-bottom: 2px;
+}
+
+.allocation-stats .value {
+    display: block;
+    color: var(--gray);
+    font-size: 0.9rem;
+}
+
+.portfolio-table {
+    background: white;
+    border-radius: 16px;
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: var(--shadow);
+}
+
+.table-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.table-header h2 {
+    font-size: 1.5rem;
+    color: var(--dark);
+}
+
+.table-controls {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.search-box {
+    position: relative;
+}
+
+.search-box i {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--gray);
+}
+
+.search-box input {
+    padding: 10px 12px 10px 36px;
+    border: 1px solid var(--light-gray);
+    border-radius: 6px;
+    width: 200px;
+    font-family: var(--font-primary);
+}
+
+.sort-select {
+    padding: 10px 12px;
+    border: 1px solid var(--light-gray);
+    border-radius: 6px;
+    font-family: var(--font-primary);
+}
+
+.portfolio-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.portfolio-table th {
+    text-align: left;
+    padding: 16px 12px;
+    color: var(--gray);
+    font-weight: 500;
+    font-size: 0.9rem;
+    border-bottom: 1px solid var(--light-gray);
+    white-space: nowrap;
+}
+
+.portfolio-table td {
+    padding: 20px 12px;
+    border-bottom: 1px solid var(--light-gray);
+    white-space: nowrap;
+}
+
+.asset-cell {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.asset-icon {
+    width: 40px;
+    height: 40px;
+    background: var(--light);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary);
+    font-size: 1.2rem;
+}
+
+.asset-icon.usd {
+    background: var(--success);
+    color: white;
+}
+
+.asset-name {
+    display: block;
+    font-weight: 500;
+    color: var(--dark);
+    margin-bottom: 2px;
+}
+
+.asset-symbol {
+    display: block;
+    color: var(--gray);
+    font-size: 0.85rem;
+}
+
+.holding-amount {
+    display: block;
+    font-weight: 600;
+    color: var(--dark);
+    margin-bottom: 2px;
+}
+
+.holding-value {
+    display: block;
+    color: var(--gray);
+    font-size: 0.9rem;
+}
+
+.pl-cell {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.pl-amount {
+    font-weight: 600;
+    font-family: var(--font-mono);
+}
+
+.pl-amount.positive {
+    color: var(--success);
+}
+
+.pl-amount.negative {
+    color: var(--danger);
+}
+
+.pl-amount.neutral {
+    color: var(--gray);
+}
+
+.pl-percent {
+    font-size: 0.85rem;
+}
+
+.pl-percent.positive {
+    color: var(--success);
+}
+
+.pl-percent.negative {
+    color: var(--danger);
+}
+
+.pl-percent.neutral {
+    color: var(--gray);
+}
+
+.allocation-bar {
+    width: 100%;
+    height: 8px;
+    background: var(--light-gray);
+    border-radius: 4px;
+    margin-bottom: 8px;
+    overflow: hidden;
+}
+
+.bar-fill {
+    height: 100%;
+    border-radius: 4px;
+}
+
+.allocation-percent {
+    display: block;
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--gray);
+}
+
+.action-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.btn-action {
+    padding: 8px 16px;
+    border: 1px solid var(--light-gray);
+    background: white;
+    border-radius: 6px;
+    font-family: var(--font-primary);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-action.buy {
+    color: var(--success);
+    border-color: var(--success);
+}
+
+.btn-action.buy:hover {
+    background: rgba(16, 185, 129, 0.1);
+}
+
+.btn-action.sell {
+    color: var(--danger);
+    border-color: var(--danger);
+}
+
+.btn-action.sell:hover {
+    background: rgba(239, 68, 68, 0.1);
+}
+
+.btn-action.deposit {
+    color: var(--primary);
+    border-color: var(--primary);
+}
+
+.btn-action.deposit:hover {
+    background: rgba(10, 132, 255, 0.1);
+}
+
+.btn-action.withdraw {
+    color: var(--accent);
+    border-color: var(--accent);
+}
+
+.btn-action.withdraw:hover {
+    background: rgba(255, 107, 53, 0.1);
+}
+
+.portfolio-insights {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.insight-card {
+    background: white;
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: var(--shadow);
+}
+
+.insight-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--light-gray);
+}
+
+.insight-header h3 {
+    font-size: 1.2rem;
+    color: var(--dark);
+}
+
+.insight-header i {
+    color: var(--primary);
+}
+
+.insight-content {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.insight-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.insight-value {
+    font-weight: 600;
+    font-family: var(--font-mono);
+}
+
+.insight-value.positive {
+    color: var(--success);
+}
+
+.insight-value.negative {
+    color: var(--danger);
+}
+
+.recommendation {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px;
+    background: var(--light);
+    border-radius: 8px;
+}
+
+.recommendation i {
+    color: var(--success);
+    margin-top: 2px;
+}
+
+.recommendation p {
+    color: var(--dark);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.risk-meter {
+    margin-bottom: 20px;
+}
+
+.meter-label {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+}
+
+.meter-bar {
+    height: 8px;
+    background: var(--light-gray);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.meter-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #10B981, #F59E0B);
+    border-radius: 4px;
+}
+
+.risk-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--light-gray);
+}
+
+.risk-item:last-child {
+    border-bottom: none;
+}
+
+.risk-value {
+    font-weight: 600;
+    font-family: var(--font-mono);
+}
+
+/* Responsive Portfolio */
+@media (max-width: 1200px) {
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 992px) {
+    .header-content {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+    
+    .time-filters {
+        width: 100%;
+        overflow-x: auto;
+        padding-bottom: 10px;
+    }
+    
+    .table-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+    
+    .table-controls {
+        width: 100%;
+        justify-content: space-between;
+    }
+    
+    .portfolio-insights {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .portfolio-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .chart-legend {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .portfolio-table {
+        overflow-x: auto;
+    }
+    
+    .portfolio-table table {
+        font-size: 0.9rem;
+    }
+}
