@@ -10,14 +10,5 @@
 <img width="1351" height="600" alt="image" src="https://github.com/user-attachments/assets/863b90cb-f511-4e1e-89ee-6414a38035cb" />
 </a>
 </div>
-<style>
-  .h1{
-    Background-color: #FFF;
-    Color: #000;
-    }
-  .img{
-    widhth: 250px;
-    heigt: 250px;
-    opacity: 20%;
-  }
-</style>
+</div>
+
