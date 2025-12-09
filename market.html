@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Market | FPCryptoTrade - Live Crypto Prices</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="market.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/svg+xml" href="logo.svg">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <div class="logo-mark">
+                    <svg width="40" height="40" viewBox="0 0 40 40">
+                        <path d="M8,20 Q14,6 20,20 Q26,34 32,20" 
+                              stroke="#0A84FF" 
+                              stroke-width="2" 
+                              fill="none"/>
+                    </svg>
+                    <span class="logo-text">FP<span class="logo-accent">CryptoTrade</span></span>
+                </div>
+            </a>
+            
+            <div class="nav-menu">
+                <a href="dashboard.html">Dashboard</a>
+                <a href="trade.html">Trade</a>
+                <a href="wallet.html">Wallet</a>
+                <a href="market.html" class="active">Market</a>
+                <a href="staking.html">Staking</a>
+                <a href="yield-farming.html">Yield Farming</a>
+                <a href="trading-bot.html">Trading Bot</a>
+                <a href="actions.html">Actions</a>
+                <div class="nav-auth">
+                    <div class="user-profile">
+                        <div class="user-avatar">JD</div>
+                        <div class="user-info">
+                            <span class="user-name">John Doe</span>
+                            <span class="user-balance">$12,458.32</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Market Main Content -->
+    <main class="market-container">
+        <div class="container">
+            <!-- Market Header -->
+            <div class="market-header">
+                <div class="market-header-left">
+                    <h1 class="market-title">Cryptocurrency Market</h1>
+                    <p class="market-subtitle">Real-time prices, charts, and market insights</p>
+                </div>
+                <div class="market-header-right">
+                    <div class="market-stats">
+                        <div class="market-stat">
+                            <span class="stat-label">Total Market Cap</span>
+                            <span class="stat-value" id="totalMarketCap">$2.1T</span>
+                        </div>
+                        <div class="market-stat">
+                            <span class="stat-label">24h Volume</span>
+                            <span class="stat-value" id="dailyVolume">$84.2B</span>
+                        </div>
+                        <div class="market-stat">
+                            <span class="stat-label">BTC Dominance</span>
+                            <span class="stat-value" id="btcDominance">52.4%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Market Controls -->
+            <div class="market-controls">
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="searchCrypto" placeholder="Search cryptocurrencies...">
+                </div>
+                <div class="filter-controls">
+                    <select id="marketFilter" class="filter-select">
+                        <option value="all">All Cryptocurrencies</option>
+                        <option value="gainers">Top Gainers</option>
+                        <option value="losers">Top Losers</option>
+                        <option value="volume">Highest Volume</option>
+                        <option value="marketCap">Largest Market Cap</option>
+                    </select>
+                    <div class="view-toggle">
+                        <button class="view-btn active" data-view="table">
+                            <i class="fas fa-table"></i>
+                        </button>
+                        <button class="view-btn" data-view="cards">
+                            <i class="fas fa-th-large"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Market Table View -->
+            <div class="market-table-view active">
+                <div class="table-container">
+                    <table class="market-table">
+                        <thead>
+                            <tr>
+                                <th class="sortable" data-sort="name">
+                                    <span>Name</span>
+                                    <i class="fas fa-sort"></i>
+                                </th>
+                                <th class="sortable" data-sort="price">
+                                    <span>Price</span>
+                                    <i class="fas fa-sort"></i>
+                                </th>
+                                <th class="sortable" data-sort="change24h">
+                                    <span>24h Change</span>
+                                    <i class="fas fa-sort"></i>
+                                </th>
+                                <th class="sortable" data-sort="marketCap">
+                                    <span>Market Cap</span>
+                                    <i class="fas fa-sort"></i>
+                                </th>
+                                <th class="sortable" data-sort="volume24h">
+                                    <span>Volume (24h)</span>
+                                    <i class="fas fa-sort"></i>
+                                </th>
+                                <th>Chart (7D)</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="marketTableBody">
+                            <!-- Crypto data will be loaded here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Market Cards View -->
+            <div class="market-cards-view">
+                <div class="cards-grid" id="marketCardsGrid">
+                    <!-- Cards will be loaded here -->
+                </div>
+            </div>
+
+            <!-- Featured Pairs Section -->
+            <div class="featured-pairs">
+                <h2 class="section-title">Featured Trading Pairs</h2>
+                <div class="pairs-grid">
+                    <div class="pair-card">
+                        <div class="pair-header">
+                            <div class="pair-symbol">
+                                <div class="pair-icons">
+                                    <div class="pair-icon btc">B</div>
+                                    <div class="pair-icon eth">E</div>
+                                </div>
+                                <span class="pair-name">BTC/ETH</span>
+                            </div>
+                            <span class="pair-price">0.0672</span>
+                        </div>
+                        <div class="pair-chart">
+                            <div class="mini-chart" id="btcEthChart"></div>
+                        </div>
+                        <div class="pair-stats">
+                            <div class="pair-stat">
+                                <span class="stat-label">24h Change</span>
+                                <span class="stat-value positive">+2.4%</span>
+                            </div>
+                            <div class="pair-stat">
+                                <span class="stat-label">24h Volume</span>
+                                <span class="stat-value">$1.2B</span>
+                            </div>
+                        </div>
+                        <button class="pair-trade-btn">Trade Now</button>
+                    </div>
+
+                    <div class="pair-card">
+                        <div class="pair-header">
+                            <div class="pair-symbol">
+                                <div class="pair-icons">
+                                    <div class="pair-icon eth">E</div>
+                                    <div class="pair-icon usdt">U</div>
+                                </div>
+                                <span class="pair-name">ETH/USDT</span>
+                            </div>
+                            <span class="pair-price">2,850.67</span>
+                        </div>
+                        <div class="pair-chart">
+                            <div class="mini-chart" id="ethUsdtChart"></div>
+                        </div>
+                        <div class="pair-stats">
+                            <div class="pair-stat">
+                                <span class="stat-label">24h Change</span>
+                                <span class="stat-value positive">+1.8%</span>
+                            </div>
+                            <div class="pair-stat">
+                                <span class="stat-label">24h Volume</span>
+                                <span class="stat-value">$8.7B</span>
+                            </div>
+                        </div>
+                        <button class="pair-trade-btn">Trade Now</button>
+                    </div>
+
+                    <div class="pair-card">
+                        <div class="pair-header">
+                            <div class="pair-symbol">
+                                <div class="pair-icons">
+                                    <div class="pair-icon sol">S</div>
+                                    <div class="pair-icon usdc">U</div>
+                                </div>
+                                <span class="pair-name">SOL/USDC</span>
+                            </div>
+                            <span class="pair-price">102.45</span>
+                        </div>
+                        <div class="pair-chart">
+                            <div class="mini-chart" id="solUsdcChart"></div>
+                        </div>
+                        <div class="pair-stats">
+                            <div class="pair-stat">
+                                <span class="stat-label">24h Change</span>
+                                <span class="stat-value positive">+5.7%</span>
+                            </div>
+                            <div class="pair-stat">
+                                <span class="stat-label">24h Volume</span>
+                                <span class="stat-value">$2.1B</span>
+                            </div>
+                        </div>
+                        <button class="pair-trade-btn">Trade Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Trending Section -->
+            <div class="trending-section">
+                <div class="trending-header">
+                    <h2 class="section-title">Trending Now</h2>
+                    <div class="trending-tabs">
+                        <button class="trending-tab active" data-tab="gainers">Top Gainers</button>
+                        <button class="trending-tab" data-tab="losers">Top Losers</button>
+                        <button class="trending-tab" data-tab="volume">Trending Volume</button>
+                    </div>
+                </div>
+                <div class="trending-content">
+                    <div class="trending-list" id="trendingGainers">
+                        <!-- Top gainers will be loaded here -->
+                    </div>
+                    <div class="trending-list" id="trendingLosers" style="display: none;">
+                        <!-- Top losers will be loaded here -->
+                    </div>
+                    <div class="trending-list" id="trendingVolume" style="display: none;">
+                        <!-- Trending volume will be loaded here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Market Insights -->
+            <div class="market-insights">
+                <h2 class="section-title">Market Insights</h2>
+                <div class="insights-grid">
+                    <div class="insight-card">
+                        <div class="insight-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>Market Sentiment</h3>
+                        <div class="sentiment-meter">
+                            <div class="meter-bar">
+                                <div class="meter-fill" style="width: 65%;"></div>
+                            </div>
+                            <div class="sentiment-label">Bullish (65%)</div>
+                        </div>
+                        <p class="insight-text">Overall market sentiment remains bullish with increased institutional interest.</p>
+                    </div>
+                    <div class="insight-card">
+                        <div class="insight-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h3>Volatility Index</h3>
+                        <div class="volatility-level">
+                            <span class="level-label">Medium</span>
+                            <div class="level-bar">
+                                <div class="level-segment high"></div>
+                                <div class="level-segment medium active"></div>
+                                <div class="level-segment low"></div>
+                            </div>
+                        </div>
+                        <p class="insight-text">Market volatility is at moderate levels, suitable for most trading strategies.</p>
+                    </div>
+                    <div class="insight-card">
+                        <div class="insight-icon">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <h3>Upcoming Events</h3>
+                        <div class="events-list">
+                            <div class="event-item">
+                                <span class="event-name">Fed Meeting</span>
+                                <span class="event-date">Mar 20</span>
+                            </div>
+                            <div class="event-item">
+                                <span class="event-name">Bitcoin Halving</span>
+                                <span class="event-date">Apr 2024</span>
+                            </div>
+                        </div>
+                        <p class="insight-text">Key events may impact market direction in the coming weeks.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content"> 
+                <div class="footer-brand">
+                    <div class="logo">
+                        <svg width="30" height="30" viewBox="0 0 30 30">
+                            <path d="M6,15 Q11,3 15,15 Q19,27 24,15" 
+                                  stroke="#00D4AA" 
+                                  stroke-width="2" 
+                                  fill="none"/>
+                        </svg>
+                        <span>FP<span style="color:#0A84FF">CryptoTrade</span></span>
+                    </div>
+                    <p>Real-time Crypto Market Data</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <a href="#"><i class="fab fa-discord"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <div class="link-group">
+                        <h4>Trading</h4>
+                        <a href="trade.html">Spot Trading</a>
+                        <a href="market.html">Markets</a>
+                        <a href="trading-bot.html">Trading Bot</a>
+                        <a href="orders.html">Order History</a>
+                    </div>
+                    <div class="link-group">
+                        <h4>Earn</h4>
+                        <a href="staking.html">Staking</a>
+                        <a href="yield-farming.html">Yield Farming</a>
+                        <a href="portfolio.html">Portfolio</a>
+                        <a href="rewards.html">Rewards</a>
+                    </div>
+                    <div class="link-group">
+                        <h4>Support</h4>
+                        <a href="help.html">Help Center</a>
+                        <a href="contact.html">Contact Us</a>
+                        <a href="terms.html">Terms</a>
+                        <a href="privacy.html">Privacy</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 FP-CryptoTrade. All rights reserved.</p>
+                <p class="disclaimer">Cryptocurrency trading involves significant risk. Prices are updated every 5 minutes.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="market.js"></script>
+</body>
+</html>

@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orders | FP-CryptoTrade</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="orders.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <div class="logo-mark">
+                    <svg width="40" height="40" viewBox="0 0 40 40">
+                        <path d="M8,20 Q14,6 20,20 Q26,34 32,20" 
+                              stroke="#0A84FF" 
+                              stroke-width="2" 
+                              fill="none"/>
+                    </svg>
+                    <span class="logo-text">FP<span class="logo-accent">CryptoTrade</span></span>
+                </div>
+            </a>
+            
+            <div class="nav-menu">
+                <a href="dashboard.html">Dashboard</a>
+                <a href="trade.html">Trade</a>
+                <a href="wallet.html">Wallet</a>
+                <a href="orders.html" class="active">Orders</a>
+                <a href="actions.html">Actions</a>
+                <div class="nav-auth">
+                    <!-- Will be populated by JavaScript -->
+                </div>
+            </div>
+            
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <div class="orders-container">
+        <div class="orders-header">
+            <h1>Orders</h1>
+            <div class="orders-actions">
+                <button class="btn btn-primary" id="newOrderBtn">
+                    <i class="fas fa-plus"></i> New Order
+                </button>
+                <button class="btn btn-outline" id="cancelAllBtn">
+                    <i class="fas fa-ban"></i> Cancel All
+                </button>
+            </div>
+        </div>
+
+        <div class="orders-tabs">
+            <div class="tab-nav">
+                <button class="tab-btn active" data-tab="open">Open Orders (3)</button>
+                <button class="tab-btn" data-tab="filled">Filled Orders</button>
+                <button class="tab-btn" data-tab="canceled">Canceled Orders</button>
+                <button class="tab-btn" data-tab="all">All Orders</button>
+            </div>
+            
+            <div class="tab-content active" id="open-tab">
+                <div class="orders-table-container">
+                    <table class="orders-table">
+                        <thead>
+                            <tr>
+                                <th><input type="checkbox" id="selectAll"></th>
+                                <th>Date</th>
+                                <th>Pair</th>
+                                <th>Type</th>
+                                <th>Side</th>
+                                <th>Price</th>
+                                <th>Amount</th>
+                                <th>Filled</th>
+                                <th>Total</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><input type="checkbox" class="order-select"></td>
+                                <td>2024-01-15 14:30</td>
+                                <td>BTC/USD</td>
+                                <td><span class="order-type limit">Limit</span></td>
+                                <td><span class="order-side buy">Buy</span></td>
+                                <td>$42,500.00</td>
+                                <td>0.025 BTC</td>
+                                <td>0.000 BTC</td>
+                                <td>$1,062.50</td>
+                                <td><span class="order-status open">Open</span></td>
+                                <td>
+                                    <button class="btn-action cancel" title="Cancel Order">
+                                        <i class="fas fa-times"></i>
+                                    </button>
+                                    <button class="btn-action edit" title="Edit Order">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" class="order-select"></td>
+                                <td>2024-01-15 13:45</td>
+                                <td>ETH/USD</td>
+                                <td><span class="order-type limit">Limit</span></td>
+                                <td><span class="order-side sell">Sell</span></td>
+                                <td>$2,350.00</td>
+                                <td>1.5 ETH</td>
+                                <td>0.5 ETH</td>
+                                <td>$3,525.00</td>
+                                <td><span class="order-status partial">Partial</span></td>
+                                <td>
+                                    <button class="btn-action cancel" title="Cancel Order">
+                                        <i class="fas fa-times"></i>
+                                    </button>
+                                    <button class="btn-action edit" title="Edit Order">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" class="order-select"></td>
+                                <td>2024-01-15 12:15</td>
+                                <td>SOL/USD</td>
+                                <td><span class="order-type stop">Stop</span></td>
+                                <td><span class="order-side buy">Buy</span></td>
+                                <td>$100.00</td>
+                                <td>10 SOL</td>
+                                <td>0 SOL</td>
+                                <td>$1,000.00</td>
+                                <td><span class="order-status triggered">Triggered</span></td>
+                                <td>
+                                    <button class="btn-action cancel" title="Cancel Order">
+                                        <i class="fas fa-times"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <div class="tab-content" id="filled-tab">
+                <div class="empty-state">
+                    <i class="fas fa-check-circle"></i>
+                    <h3>No Filled Orders</h3>
+                    <p>Your filled orders will appear here</p>
+                </div>
+            </div>
+            
+            <div class="tab-content" id="canceled-tab">
+                <div class="empty-state">
+                    <i class="fas fa-ban"></i>
+                    <h3>No Canceled Orders</h3>
+                    <p>Your canceled orders will appear here</p>
+                </div>
+            </div>
+            
+            <div class="tab-content" id="all-tab">
+                <div class="empty-state">
+                    <i class="fas fa-list"></i>
+                    <h3>No Orders Found</h3>
+                    <p>All your orders across all statuses will appear here</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="orders-summary">
+            <div class="summary-card">
+                <h3>Open Orders Summary</h3>
+                <div class="summary-content">
+                    <div class="summary-item">
+                        <span>Total Open Orders</span>
+                        <span class="value">3</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>Total Value</span>
+                        <span class="value">$5,587.50</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>Buy Orders</span>
+                        <span class="value">2</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>Sell Orders</span>
+                        <span class="value">1</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary-card">
+                <h3>Order Statistics</h3>
+                <div class="summary-content">
+                    <div class="summary-item">
+                        <span>Total Orders (30d)</span>
+                        <span class="value">24</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>Fill Rate</span>
+                        <span class="value positive">87.5%</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>Avg. Fill Time</span>
+                        <span class="value">2.4m</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>Cancel Rate</span>
+                        <span class="value">8.3%</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary-card">
+                <h3>Quick Actions</h3>
+                <div class="quick-actions">
+                    <button class="btn-quick" id="cancelSelectedBtn">
+                        <i class="fas fa-times"></i>
+                        Cancel Selected
+                    </button>
+                    <button class="btn-quick" id="exportOrdersBtn">
+                        <i class="fas fa-download"></i>
+                        Export Orders
+                    </button>
+                    <button class="btn-quick" id="setAlertsBtn">
+                        <i class="fas fa-bell"></i>
+                        Set Alerts
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="orders.js"></script>
+</body>
+</html>

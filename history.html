@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>History | FP-CryptoTrade</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="history.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <div class="logo-mark">
+                    <svg width="40" height="40" viewBox="0 0 40 40">
+                        <path d="M8,20 Q14,6 20,20 Q26,34 32,20" 
+                              stroke="#0A84FF" 
+                              stroke-width="2" 
+                              fill="none"/>
+                    </svg>
+                    <span class="logo-text">FP<span class="logo-accent">CryptoTrade</span></span>
+                </div>
+            </a>
+            
+            <div class="nav-menu">
+                <a href="dashboard.html">Dashboard</a>
+                <a href="trade.html">Trade</a>
+                <a href="wallet.html">Wallet</a>
+                <a href="history.html" class="active">History</a>
+                <a href="actions.html">Actions</a>
+                <div class="nav-auth">
+                    <!-- Will be populated by JavaScript -->
+                </div>
+            </div>
+            
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <div class="history-container">
+        <div class="history-header">
+            <h1>Transaction History</h1>
+            <div class="history-controls">
+                <div class="date-range">
+                    <button class="btn-date active">Today</button>
+                    <button class="btn-date">7D</button>
+                    <button class="btn-date">30D</button>
+                    <button class="btn-date">90D</button>
+                    <button class="btn-date" id="customRangeBtn">
+                        <i class="fas fa-calendar"></i> Custom
+                    </button>
+                </div>
+                <button class="btn btn-primary" id="exportHistoryBtn">
+                    <i class="fas fa-download"></i> Export
+                </button>
+            </div>
+        </div>
+
+        <div class="history-filters">
+            <div class="filter-section">
+                <h3>Transaction Type</h3>
+                <div class="filter-options">
+                    <label class="checkbox">
+                        <input type="checkbox" checked>
+                        <span>Trades</span>
+                    </label>
+                    <label class="checkbox">
+                        <input type="checkbox" checked>
+                        <span>Deposits</span>
+                    </label>
+                    <label class="checkbox">
+                        <input type="checkbox" checked>
+                        <span>Withdrawals</span>
+                    </label>
+                    <label class="checkbox">
+                        <input type="checkbox">
+                        <span>Transfers</span>
+                    </label>
+                    <label class="checkbox">
+                        <input type="checkbox">
+                        <span>Staking Rewards</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="filter-section">
+                <h3>Asset</h3>
+                <div class="asset-search">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search assets...">
+                </div>
+                <div class="asset-list">
+                    <label class="checkbox">
+                        <input type="checkbox" checked>
+                        <span>All Assets</span>
+                    </label>
+                    <label class="checkbox">
+                        <input type="checkbox">
+                        <span>BTC</span>
+                    </label>
+                    <label class="checkbox">
+                        <input type="checkbox">
+                        <span>ETH</span>
+                    </label>
+                    <label class="checkbox">
+                        <input type="checkbox">
+                        <span>USD</span>
+                    </label>
+                    <label class="checkbox">
+                        <input type="checkbox">
+                        <span>SOL</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="filter-section">
+                <h3>Status</h3>
+                <div class="filter-options">
+                    <label class="checkbox">
+                        <input type="checkbox" checked>
+                        <span>Completed</span>
+                    </label>
+                    <label class="checkbox">
+                        <input type="checkbox">
+                        <span>Pending</span>
+                    </label>
+                    <label class="checkbox">
+                        <input type="checkbox">
+                        <span>Failed</span>
+                    </label>
+                    <label class="checkbox">
+                        <input type="checkbox">
+                        <span>Cancelled</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="filter-actions">
+                <button class="btn btn-outline" id="clearFiltersBtn">
+                    Clear Filters
+                </button>
+                <button class="btn btn-primary" id="applyFiltersBtn">
+                    Apply Filters
+                </button>
+            </div>
+        </div>
+
+        <div class="history-stats">
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-exchange-alt"></i>
+                </div>
+                <div class="stat-info">
+                    <span class="stat-label">Total Trades</span>
+                    <span class="stat-value">24</span>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-arrow-down"></i>
+                </div>
+                <div class="stat-info">
+                    <span class="stat-label">Total Deposits</span>
+                    <span class="stat-value">$7,500.00</span>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-arrow-up"></i>
+                </div>
+                <div class="stat-info">
+                    <span class="stat-label">Total Withdrawals</span>
+                    <span class="stat-value">$1,350.00</span>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <div class="stat-info">
+                    <span class="stat-label">Total P/L</span>
+                    <span class="stat-value positive">$342.50</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="history-table-container">
+            <table class="history-table">
+                <thead>
+                    <tr>
+                        <th>Date & Time</th>
+                        <th>Type</th>
+                        <th>Asset</th>
+                        <th>Amount</th>
+                        <th>Price</th>
+                        <th>Total Value</th>
+                        <th>Fee</th>
+                        <th>Status</th>
+                        <th>Details</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <span class="date">2024-01-15</span>
+                            <span class="time">14:30:22</span>
+                        </td>
+                        <td>
+                            <span class="tx-type trade buy">Buy</span>
+                        </td>
+                        <td>
+                            <div class="asset-cell">
+                                <div class="asset-icon">
+                                    <i class="fab fa-bitcoin"></i>
+                                </div>
+                                <span>BTC/USD</span>
+                            </div>
+                        </td>
+                        <td>0.025 BTC</td>
+                        <td>$42,500.00</td>
+                        <td>$1,062.50</td>
+                        <td>$1.06</td>
+                        <td><span class="status completed">Completed</span></td>
+                        <td>
+                            <button class="btn-details">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="date">2024-01-15</span>
+                            <span class="time">13:45:10</span>
+                        </td>
+                        <td>
+                            <span class="tx-type trade sell">Sell</span>
+                        </td>
+                        <td>
+                            <div class="asset-cell">
+                                <div class="asset-icon">
+                                    <i class="fab fa-ethereum"></i>
+                                </div>
+                                <span>ETH/USD</span>
+                            </div>
+                        </td>
+                        <td>1.5 ETH</td>
+                        <td>$2,340.00</td>
+                        <td>$3,510.00</td>
+                        <td>$3.51</td>
+                        <td><span class="status completed">Completed</span></td>
+                        <td>
+                            <button class="btn-details">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="date">2024-01-15</span>
+                            <span class="time">12:15:45</span>
+                        </td>
+                        <td>
+                            <span class="tx-type deposit">Deposit</span>
+                        </td>
+                        <td>
+                            <div class="asset-cell">
+                                <div class="asset-icon usd">
+                                    <i class="fas fa-dollar-sign"></i>
+                                </div>
+                                <span>USD</span>
+                            </div>
+                        </td>
+                        <td>$5,000.00</td>
+                        <td>-</td>
+                        <td>$5,000.00</td>
+                        <td>$0.00</td>
+                        <td><span class="status completed">Completed</span></td>
+                        <td>
+                            <button class="btn-details">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="date">2024-01-14</span>
+                            <span class="time">16:20:33</span>
+                        </td>
+                        <td>
+                            <span class="tx-type withdrawal">Withdrawal</span>
+                        </td>
+                        <td>
+                            <div class="asset-cell">
+                                <div class="asset-icon usd">
+                                    <i class="fas fa-dollar-sign"></i>
+                                </div>
+                                <span>USD</span>
+                            </div>
+                        </td>
+                        <td>$500.00</td>
+                        <td>-</td>
+                        <td>$500.00</td>
+                        <td>$5.00</td>
+                        <td><span class="status completed">Completed</span></td>
+                        <td>
+                            <button class="btn-details">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="date">2024-01-14</span>
+                            <span class="time">11:05:18</span>
+                        </td>
+                        <td>
+                            <span class="tx-type staking">Staking Reward</span>
+                        </td>
+                        <td>
+                            <div class="asset-cell">
+                                <div class="asset-icon">
+                                    <i class="fab fa-ethereum"></i>
+                                </div>
+                                <span>ETH</span>
+                            </div>
+                        </td>
+                        <td>0.005 ETH</td>
+                        <td>$2,345.67</td>
+                        <td>$11.73</td>
+                        <td>$0.00</td>
+                        <td><span class="status completed">Completed</span></td>
+                        <td>
+                            <button class="btn-details">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="pagination">
+            <button class="btn-pagination prev" disabled>
+                <i class="fas fa-chevron-left"></i> Previous
+            </button>
+            <div class="page-numbers">
+                <button class="page-number active">1</button>
+                <button class="page-number">2</button>
+                <button class="page-number">3</button>
+                <span class="page-dots">...</span>
+                <button class="page-number">10</button>
+            </div>
+            <button class="btn-pagination next">
+                Next <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="history.js"></script>
+</body>
+</html>
