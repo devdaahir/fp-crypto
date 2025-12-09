@@ -1,0 +1,14 @@
+
+{
+  "rewrites": [
+    { "source": "/Dashboard", "destination": "/Dashboard.html" },
+    { "source": "/Trade", "destination": "/Trade.html" },
+    { "source": "/Wallet", "destination": "/Wallet.html" },
+    { "source": "/Settings", "destination": "/Settings.html" },
+    { "source": "/History", "destination": "/History.html" },
+    { "source": "/Orders", "destination": "/Orders.html" },
+    { "source": "/Portfolio", "destination": "/portfolio.html" },
+    { "source": "/Login", "destination": "/login.html" },
+    { "source": "/Register", "destination": "/register.html" }
+  ]
+}
