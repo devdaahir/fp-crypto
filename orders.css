@@ -1,0 +1,344 @@
+/* Orders Page Styles */
+.orders-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 30px 20px;
+}
+
+.orders-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.orders-header h1 {
+    font-size: 2.5rem;
+    color: var(--dark);
+}
+
+.orders-actions {
+    display: flex;
+    gap: 12px;
+}
+
+.orders-tabs {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    margin-bottom: 30px;
+}
+
+.tab-nav {
+    display: flex;
+    background: var(--light);
+    border-bottom: 1px solid var(--light-gray);
+}
+
+.tab-btn {
+    padding: 16px 24px;
+    background: none;
+    border: none;
+    border-right: 1px solid var(--light-gray);
+    color: var(--gray);
+    font-family: var(--font-primary);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.tab-btn:last-child {
+    border-right: none;
+}
+
+.tab-btn:hover {
+    color: var(--primary);
+    background: rgba(10, 132, 255, 0.05);
+}
+
+.tab-btn.active {
+    color: var(--primary);
+    background: white;
+    border-bottom: 3px solid var(--primary);
+}
+
+.tab-content {
+    display: none;
+    padding: 30px;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.orders-table-container {
+    overflow-x: auto;
+}
+
+.orders-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+}
+
+.orders-table th {
+    text-align: left;
+    padding: 16px 12px;
+    color: var(--gray);
+    font-weight: 500;
+    border-bottom: 1px solid var(--light-gray);
+    white-space: nowrap;
+}
+
+.orders-table td {
+    padding: 20px 12px;
+    border-bottom: 1px solid var(--light-gray);
+    white-space: nowrap;
+}
+
+.orders-table input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+.order-type {
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.order-type.market {
+    background: rgba(10, 132, 255, 0.1);
+    color: var(--primary);
+}
+
+.order-type.limit {
+    background: rgba(16, 185, 129, 0.1);
+    color: var(--success);
+}
+
+.order-type.stop {
+    background: rgba(245, 158, 11, 0.1);
+    color: var(--warning);
+}
+
+.order-side {
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.order-side.buy {
+    background: rgba(16, 185, 129, 0.1);
+    color: var(--success);
+}
+
+.order-side.sell {
+    background: rgba(239, 68, 68, 0.1);
+    color: var(--danger);
+}
+
+.order-status {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.order-status.open {
+    background: rgba(10, 132, 255, 0.1);
+    color: var(--primary);
+}
+
+.order-status.partial {
+    background: rgba(245, 158, 11, 0.1);
+    color: var(--warning);
+}
+
+.order-status.filled {
+    background: rgba(16, 185, 129, 0.1);
+    color: var(--success);
+}
+
+.order-status.canceled {
+    background: rgba(239, 68, 68, 0.1);
+    color: var(--danger);
+}
+
+.order-status.triggered {
+    background: rgba(168, 85, 247, 0.1);
+    color: #8B5CF6;
+}
+
+.btn-action {
+    width: 32px;
+    height: 32px;
+    border: 1px solid var(--light-gray);
+    background: white;
+    border-radius: 6px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: var(--gray);
+    margin-right: 4px;
+}
+
+.btn-action:hover {
+    transform: translateY(-1px);
+}
+
+.btn-action.cancel:hover {
+    border-color: var(--danger);
+    color: var(--danger);
+}
+
+.btn-action.edit:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+.empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--gray);
+}
+
+.empty-state i {
+    font-size: 3rem;
+    color: var(--light-gray);
+    margin-bottom: 20px;
+}
+
+.empty-state h3 {
+    font-size: 1.5rem;
+    color: var(--dark);
+    margin-bottom: 10px;
+}
+
+.orders-summary {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.summary-card {
+    background: white;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: var(--shadow);
+}
+
+.summary-card h3 {
+    font-size: 1.2rem;
+    color: var(--dark);
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--light-gray);
+}
+
+.summary-content {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.summary-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.summary-item .value {
+    font-weight: 600;
+    font-family: var(--font-mono);
+}
+
+.summary-item .value.positive {
+    color: var(--success);
+}
+
+.summary-item .value.negative {
+    color: var(--danger);
+}
+
+.quick-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.btn-quick {
+    padding: 12px 16px;
+    background: var(--light);
+    border: 1px solid var(--light-gray);
+    border-radius: 8px;
+    color: var(--dark);
+    font-family: var(--font-primary);
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: all 0.3s ease;
+}
+
+.btn-quick:hover {
+    background: white;
+    border-color: var(--primary);
+    color: var(--primary);
+    transform: translateY(-1px);
+}
+
+/* Responsive Orders */
+@media (max-width: 992px) {
+    .orders-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+    
+    .orders-actions {
+        width: 100%;
+        justify-content: flex-start;
+    }
+    
+    .tab-nav {
+        overflow-x: auto;
+        padding-bottom: 10px;
+    }
+    
+    .tab-btn {
+        white-space: nowrap;
+    }
+    
+    .orders-summary {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .orders-table {
+        font-size: 0.8rem;
+    }
+    
+    .orders-table th,
+    .orders-table td {
+        padding: 12px 8px;
+    }
+    
+    .btn-action {
+        width: 28px;
+        height: 28px;
+        font-size: 0.8rem;
+    }
+}

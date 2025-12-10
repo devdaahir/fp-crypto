@@ -1,0 +1,474 @@
+/* Actions Page Specific Styles */
+.actions-header {
+    background: linear-gradient(135deg, var(--dark), #1E3A8A);
+    color: white;
+    padding: 40px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-content h1 {
+    color: white;
+    margin-bottom: 10px;
+    font-size: 2.5rem;
+}
+
+.header-content p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.1rem;
+    max-width: 600px;
+}
+
+.header-stats {
+    display: flex;
+    gap: 40px;
+}
+
+.header-stats .stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header-stats .stat-value {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.header-stats .stat-value.positive {
+    color: var(--secondary);
+}
+
+.header-stats .stat-label {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.featured-actions {
+    margin-bottom: 40px;
+}
+
+.featured-actions h2 {
+    margin-bottom: 24px;
+    font-size: 1.8rem;
+}
+
+.actions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+}
+
+.action-card {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.action-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.action-badge {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.action-card.premium .action-badge {
+    background: linear-gradient(90deg, #FFD700, #FFA500);
+    color: #000;
+}
+
+.action-card.new .action-badge {
+    background: var(--primary);
+    color: white;
+}
+
+.action-card.popular .action-badge {
+    background: var(--secondary);
+    color: white;
+}
+
+.action-icon {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    color: white;
+    font-size: 1.8rem;
+}
+
+.action-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 12px;
+}
+
+.action-card p {
+    color: var(--gray);
+    margin-bottom: 24px;
+    line-height: 1.6;
+}
+
+.action-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.action-stats .stat {
+    display: flex;
+    flex-direction: column;
+}
+
+.action-stats .label {
+    font-size: 0.8rem;
+    color: var(--gray);
+    margin-bottom: 4px;
+}
+
+.action-stats .value {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.action-stats .value.positive {
+    color: var(--success);
+}
+
+.active-actions {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    margin-bottom: 40px;
+    box-shadow: var(--shadow);
+}
+
+.active-actions .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.actions-table {
+    overflow-x: auto;
+}
+
+.actions-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.actions-table th {
+    text-align: left;
+    padding: 16px 12px;
+    color: var(--gray);
+    font-weight: 500;
+    font-size: 0.9rem;
+    border-bottom: 1px solid var(--light-gray);
+    white-space: nowrap;
+}
+
+.actions-table td {
+    padding: 20px 12px;
+    border-bottom: 1px solid var(--light-gray);
+    white-space: nowrap;
+}
+
+.action-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.action-icon-sm {
+    width: 40px;
+    height: 40px;
+    background: var(--light);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary);
+}
+
+.action-date {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--gray);
+    margin-top: 4px;
+}
+
+.profit {
+    font-weight: 600;
+}
+
+.profit.positive {
+    color: var(--success);
+}
+
+.profit.negative {
+    color: var(--danger);
+}
+
+.profit.neutral {
+    color: var(--gray);
+}
+
+.status {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.status.active {
+    background: rgba(16, 185, 129, 0.1);
+    color: var(--success);
+}
+
+.status.monitoring {
+    background: rgba(10, 132, 255, 0.1);
+    color: var(--primary);
+}
+
+.status.paused {
+    background: rgba(245, 158, 11, 0.1);
+    color: var(--warning);
+}
+
+.action-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.btn-icon {
+    width: 36px;
+    height: 36px;
+    border: 1px solid var(--light-gray);
+    background: white;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: var(--gray);
+}
+
+.btn-icon:hover {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+}
+
+.action-templates {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    margin-bottom: 40px;
+    box-shadow: var(--shadow);
+}
+
+.action-templates h2 {
+    margin-bottom: 24px;
+    font-size: 1.8rem;
+}
+
+.templates-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 24px;
+}
+
+.template-card {
+    background: var(--light);
+    padding: 24px;
+    border-radius: 8px;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.template-card:hover {
+    border-color: var(--primary);
+    transform: translateY(-2px);
+}
+
+.template-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 12px;
+}
+
+.template-card p {
+    color: var(--gray);
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+}
+
+.template-tags {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.tag {
+    padding: 4px 12px;
+    background: rgba(10, 132, 255, 0.1);
+    color: var(--primary);
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.performance-analytics {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+}
+
+.performance-analytics .section-header {
+    margin-bottom: 24px;
+}
+
+.performance-chart {
+    height: 300px;
+    position: relative;
+}
+
+/* Responsive Actions */
+@media (max-width: 1200px) {
+    .actions-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 30px;
+    }
+    
+    .header-stats {
+        width: 100%;
+        justify-content: space-between;
+    }
+}
+
+@media (max-width: 768px) {
+    .actions-header {
+        padding: 30px 20px;
+    }
+    
+    .header-content h1 {
+        font-size: 2rem;
+    }
+    
+    .header-stats {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .actions-grid,
+    .templates-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .action-stats {
+        grid-template-columns: 1fr;
+    }
+    
+    .actions-table {
+        font-size: 0.9rem;
+    }
+    
+    .action-buttons {
+        flex-direction: column;
+    }
+    
+    .btn-icon {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+/* Action Creation Modal */
+.action-modal {
+    max-width: 800px;
+}
+
+.strategy-selection {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.strategy-option {
+    padding: 20px;
+    border: 2px solid var(--light-gray);
+    border-radius: 8px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.strategy-option:hover {
+    border-color: var(--primary);
+    background: rgba(10, 132, 255, 0.05);
+}
+
+.strategy-option.selected {
+    border-color: var(--primary);
+    background: rgba(10, 132, 255, 0.1);
+}
+
+.strategy-icon {
+    font-size: 2rem;
+    color: var(--primary);
+    margin-bottom: 12px;
+}
+
+.parameter-group {
+    margin-bottom: 24px;
+}
+
+.parameter-row {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 20px;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.parameter-label {
+    font-weight: 500;
+    color: var(--dark);
+}
+
+.parameter-value {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.range-value {
+    min-width: 60px;
+    text-align: right;
+    font-family: var(--font-mono);
+}
