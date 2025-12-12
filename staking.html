@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staking | FP-CryptoTrade - Earn Passive Crypto Income</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="staking.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <div class="logo-mark">
+                    <svg width="40" height="40" viewBox="0 0 40 40">
+                        <path d="M8,20 Q14,6 20,20 Q26,34 32,20" 
+                              stroke="#0A84FF" 
+                              stroke-width="2" 
+                              fill="none"/>
+                    </svg>
+                    <span class="logo-text">FP<span class="logo-accent">CryptoTrade</span></span>
+                </div>
+            </a>
+            
+           <div class="nav-menu">
+                <a href="dashboard.html">Dashboard</a>
+                <a href="trade.html">Trade</a>
+                <a href="wallet.html" class="active">Wallet</a>
+                <a href="market.html">Market</a>
+                <a href="actions.html">Actions</a>
+                <div class="nav-auth">
+                    <!-- Will be populated by JavaScript -->
+                </div>
+            </div>
+            
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+ 
+
+    
+
+
+
+
+
+
+    <!-- Staking Main Content -->
+    <main class="staking-container">
+        <div class="container">
+            <!-- Staking Header -->
+            <div class="staking-header">
+                <div class="header-left">
+                    <h1 class="staking-title">Crypto Staking</h1>
+                    <p class="staking-subtitle">Earn passive income by staking your cryptocurrencies. Secure the network and get rewarded.</p>
+                </div>
+                <div class="header-right">
+                    <div class="staking-stats">
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-percentage"></i>
+                            </div>
+                            <div class="stat-info">
+                                <span class="stat-label">Average APY</span>
+                                <span class="stat-value">8.24%</span>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-coins"></i>
+                            </div>
+                            <div class="stat-info">
+                                <span class="stat-label">Total Staked</span>
+                                <span class="stat-value">$2.4M</span>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="stat-info">
+                                <span class="stat-label">Active Stakers</span>
+                                <span class="stat-value">1,248</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Staking Tabs -->
+            <div class="staking-tabs">
+                <div class="tabs-header">
+                    <div class="tabs-list">
+                        <button class="tab-btn active" data-tab="available">Available Pools</button>
+                        <button class="tab-btn" data-tab="my-staking">My Staking</button>
+                        <button class="tab-btn" data-tab="rewards">Rewards History</button>
+                    </div>
+                    <div class="tab-actions">
+                        <div class="search-bar">
+                            <i class="fas fa-search"></i>
+                            <input type="text" id="searchPools" placeholder="Search staking pools...">
+                        </div>
+                        <button class="btn btn-primary" id="autoStakeBtn">
+                            <i class="fas fa-robot"></i> Auto-Stake
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Available Pools Tab -->
+                <div class="tab-content active" id="available-pools">
+                    <div class="pools-grid">
+                        <!-- Ethereum Pool -->
+                        <div class="staking-pool-card premium">
+                            <div class="pool-badge">MOST POPULAR</div>
+                            <div class="pool-header">
+                                <div class="pool-icon">
+                                    <div class="crypto-icon eth">E</div>
+                                    <div class="pool-info">
+                                        <h3 class="pool-name">Ethereum Staking</h3>
+                                        <span class="pool-symbol">ETH</span>
+                                    </div>
+                                </div>
+                                <div class="pool-apy">
+                                    <span class="apy-label">APY</span>
+                                    <span class="apy-value">5.2%</span>
+                                </div>
+                            </div>
+                            <div class="pool-details">
+                                <div class="detail">
+                                    <span class="detail-label">Minimum Stake</span>
+                                    <span class="detail-value">0.1 ETH</span>
+                                </div>
+                                <div class="detail">
+                                    <span class="detail-label">Lock Period</span>
+                                    <span class="detail-value">30 Days</span>
+                                </div>
+                                <div class="detail">
+                                    <span class="detail-label">Total Staked</span>
+                                    <span class="detail-value">1,240.5 ETH</span>
+                                </div>
+                                <div class="detail">
+                                    <span class="detail-label">Reward Token</span>
+                                    <span class="detail-value">ETH</span>
+                                </div>
+                            </div>
+                            <div class="pool-progress">
+                                <div class="progress-info">
+                                    <span class="progress-label">Pool Capacity</span>
+                                    <span class="progress-value">84%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 84%"></div>
+                                </div>
+                            </div>
+                            <div class="pool-actions">
+                                <button class="btn btn-outline" data-action="details" data-pool="eth">
+                                    <i class="fas fa-info-circle"></i> Details
+                                </button>
+                                <button class="btn btn-primary" data-action="stake" data-pool="eth">
+                                    <i class="fas fa-lock"></i> Stake Now
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Cardano Pool -->
+                        <div class="staking-pool-card">
+                            <div class="pool-header">
+                                <div class="pool-icon">
+                                    <div class="crypto-icon ada">A</div>
+                                    <div class="pool-info">
+                                        <h3 class="pool-name">Cardano Staking</h3>
+                                        <span class="pool-symbol">ADA</span>
+                                    </div>
+                                </div>
+                                <div class="pool-apy">
+                                    <span class="apy-label">APY</span>
+                                    <span class="apy-value">4.8%</span>
+                                </div>
+                            </div>
+                            <div class="pool-details">
+                                <div class="detail">
+                                    <span class="detail-label">Minimum Stake</span>
+                                    <span class="detail-value">10 ADA</span>
+                                </div>
+                                <div class="detail">
+                                    <span class="detail-label">Lock Period</span>
+                                    <span class="detail-value">15 Days</span>
+                                </div>
+                                <div class="detail">
+                                    <span class="detail-label">Total Staked</span>
+                                    <span class="detail-value">4.2M ADA</span>
+                                </div>
+                                <div class="detail">
+                                    <span class="detail-label">Reward Token</span>
+                                    <span class="detail-value">ADA</span>
+                                </div>
+                            </div>
+                            <div class="pool-progress">
+                                <div class="progress-info">
+                                    <span class="progress-label">Pool Capacity</span>
+                                    <span class="progress-value">67%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 67%"></div>
+                                </div>
+                            </div>
+                            <div class="pool-actions">
+                                <button class="btn btn-outline" data-action="details" data-pool="ada">
+                                    <i class="fas fa-info-circle"></i> Details
+                                </button>
+                                <button class="btn btn-primary" data-action="stake" data-pool="ada">
+                                    <i class="fas fa-lock"></i> Stake Now
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Polkadot Pool -->
+                        <div class="staking-pool-card">
+                            <div class="pool-badge">HIGH APY</div>
+                            <div class="pool-header">
+                                <div class="pool-icon">
+                                    <div class="crypto-icon dot">D</div>
+                                    <div class="pool-info">
+                                        <h3 class="pool-name">Polkadot Staking</h3>
+                                        <span class="pool-symbol">DOT</span>
+                                    </div>
+                                </div>
+                                <div class="pool-apy">
+                                    <span class="apy-label">APY</span>
+                                    <span class="apy-value">12.5%</span>
+                                </div>
+                            </div>
+                            <div class="pool-details">
+                                <div class="detail">
+                                    <span class="detail-label">Minimum Stake</span>
+                                    <span class="detail-value">1 DOT</span>
+                                </div>
+                                <div class="detail">
+                                    <span class="detail-label">Lock Period</span>
+                                    <span class="detail-value">28 Days</span>
+                                </div>
+                                <div class="detail">
+                                    <span class="detail-label">Total Staked</span>
+                                    <span class="detail-value">850K DOT</span>
+                                </div>
+                                <div class="detail">
+                                    <span class="detail-label">Reward Token</span>
+                                    <span class="detail-value">DOT</span>
+                                </div>
+                            </div>
+                            <div class="pool-progress">
+                                <div class="progress-info">
+                                    <span class="progress-label">Pool Capacity</span>
+                                    <span class="progress-value">92%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 92%"></div>
+                                </div>
+                            </div>
+                            <div class="pool-actions">
+                                <button class="btn btn-outline" data-action="details" data-pool="dot">
+                                    <i class="fas fa-info-circle"></i> Details
+                                </button>
+                                <button class="btn btn-primary" data-action="stake" data-pool="dot">
+                                    <i class="fas fa-lock"></i> Stake Now
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Solana Pool -->
+                        <div class="staking-pool-card">
+                            <div class="pool-header">
+                                <div class="pool-icon">
+                                    <div class="crypto-icon sol">S</div>
+                                    <div class="pool-info">
+                                        <h3 class="pool-name">Solana Staking</h3>
+                                        <span class="pool-symbol">SOL</span>
+                                    </div>
+                                </div>
+                                <div class="pool-apy">
+                                    <span class="apy-label">APY</span>
+                                    <span class="apy-value">7.3%</span>
+                                </div>
+                            </div>
+                            <div class="pool-details">
+                                <div class="detail">
+                                    <span class="detail-label">Minimum Stake</span>
+                                    <span class="detail-value">0.5 SOL</span>
+                                </div>
+                                <div class="detail">
+                                    <span class="detail-label">Lock Period</span>
+                                    <span class="detail-value">7 Days</span>
+                                </div>
+                                <div class="detail">
+                                    <span class="detail-label">Total Staked</span>
+                                    <span class="detail-value">2.1M SOL</span>
+                                </div>
+                                <div class="detail">
+                                    <span class="detail-label">Reward Token</span>
+                                    <span class="detail-value">SOL</span>
+                                </div>
+                            </div>
+                            <div class="pool-progress">
+                                <div class="progress-info">
+                                    <span class="progress-label">Pool Capacity</span>
+                                    <span class="progress-value">73%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 73%"></div>
+                                </div>
+                            </div>
+                            <div class="pool-actions">
+                                <button class="btn btn-outline" data-action="details" data-pool="sol">
+                                    <i class="fas fa-info-circle"></i> Details
+                                </button>
+                                <button class="btn btn-primary" data-action="stake" data-pool="sol">
+                                    <i class="fas fa-lock"></i> Stake Now
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- BNB Pool -->
+                        <div class="staking-pool-card">
+                            <div class="pool-header">
+                                <div class="pool-icon">
+                                    <div class="crypto-icon bnb">B</div>
+                                    <div class="pool-info">
+                                        <h3 class="pool-name">BNB Staking</h3>
+                                        <span class="pool-symbol">BNB</span>
+                                    </div>
+                                </div>
+                                <div class="pool-apy">
+                                    <span class="apy-label">APY</span>
+                                    <span class="apy-value">3.2%</span>
+                                </div>
+                            </div>
+                            <div class="pool-details">
+                                <div class="detail">
+                                    <span class="detail-label">Minimum Stake</span>
+                                    <span class="detail-value">0.5 BNB</span>
+                                </div>
+                                <div class="detail">
+                                    <span class="detail-label">Lock Period</span>
+                                    <span class="detail-value">90 Days</span>
+                                </div>
+                                <div class="detail">
+                                    <span class="detail-label">Total Staked</span>
+                                    <span class="detail-value">125K BNB</span>
+                                </div>
+                                <div class="detail">
+                                    <span class="detail-label">Reward Token</span>
+                                    <span class="detail-value">BNB</span>
+                                </div>
+                            </div>
+                            <div class="pool-progress">
+                                <div class="progress-info">
+                                    <span class="progress-label">Pool Capacity</span>
+                                    <span class="progress-value">58%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 58%"></div>
+                                </div>
+                            </div>
+                            <div class="pool-actions">
+                                <button class="btn btn-outline" data-action="details" data-pool="bnb">
+                                    <i class="fas fa-info-circle"></i> Details
+                                </button>
+                                <button class="btn btn-primary" data-action="stake" data-pool="bnb">
+                                    <i class="fas fa-lock"></i> Stake Now
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Avalanche Pool -->
+                        <div class="staking-pool-card">
+                            <div class="pool-header">
+                                <div class="pool-icon">
+                                    <div class="crypto-icon avax">A</div>
+                                    <div class="pool-info">
+                                        <h3 class="pool-name">Avalanche Staking</h3>
+                                        <span class="pool-symbol">AVAX</span>
+                                    </div>
+                                </div>
+                                <div class="pool-apy">
+                                    <span class="apy-label">APY</span>
+                                    <span class="apy-value">9.1%</span>
+                                </div>
+                            </div>
+                            <div class="pool-details">
+                                <div class="detail">
+                                    <span class="detail-label">Minimum Stake</span>
+                                    <span class="detail-value">1 AVAX</span>
+                                </div>
+                                <div class="detail">
+                                    <span class="detail-label">Lock Period</span>
+                                    <span class="detail-value">21 Days</span>
+                                </div>
+                                <div class="detail">
+                                    <span class="detail-label">Total Staked</span>
+                                    <span class="detail-value">750K AVAX</span>
+                                </div>
+                                <div class="detail">
+                                    <span class="detail-label">Reward Token</span>
+                                    <span class="detail-value">AVAX</span>
+                                </div>
+                            </div>
+                            <div class="pool-progress">
+                                <div class="progress-info">
+                                    <span class="progress-label">Pool Capacity</span>
+                                    <span class="progress-value">81%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 81%"></div>
+                                </div>
+                            </div>
+                            <div class="pool-actions">
+                                <button class="btn btn-outline" data-action="details" data-pool="avax">
+                                    <i class="fas fa-info-circle"></i> Details
+                                </button>
+                                <button class="btn btn-primary" data-action="stake" data-pool="avax">
+                                    <i class="fas fa-lock"></i> Stake Now
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- My Staking Tab -->
+                <div class="tab-content" id="my-staking">
+                    <div class="my-staking-container">
+                        <div class="my-stats">
+                            <div class="stat-card large">
+                                <div class="stat-content">
+                                    <span class="stat-label">Total Value Staked</span>
+                                    <span class="stat-value">$4,825.50</span>
+                                    <span class="stat-change positive">+$124.32 this month</span>
+                                </div>
+                                <div class="stat-chart">
+                                    <div class="mini-chart"></div>
+                                </div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-icon">
+                                    <i class="fas fa-calendar-check"></i>
+                                </div>
+                                <div class="stat-info">
+                                    <span class="stat-label">Active Positions</span>
+                                    <span class="stat-value">3</span>
+                                </div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-icon">
+                                    <i class="fas fa-gift"></i>
+                                </div>
+                                <div class="stat-info">
+                                    <span class="stat-label">Monthly Rewards</span>
+                                    <span class="stat-value">$48.75</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="my-positions">
+                            <h3>My Staking Positions</h3>
+                            <div class="positions-table">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Asset</th>
+                                            <th>Amount</th>
+                                            <th>APY</th>
+                                            <th>Locked Until</th>
+                                            <th>Rewards Earned</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <div class="asset-cell">
+                                                    <div class="crypto-icon eth">E</div>
+                                                    <div class="asset-info">
+                                                        <span class="asset-name">Ethereum</span>
+                                                        <span class="asset-symbol">ETH</span>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="amount-cell">
+                                                    <span class="amount">2.5 ETH</span>
+                                                    <span class="value">$8,562.50</span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <span class="apy-badge">5.2%</span>
+                                            </td>
+                                            <td>
+                                                <span class="date-cell">Apr 15, 2024</span>
+                                            </td>
+                                            <td>
+                                                <div class="rewards-cell">
+                                                    <span class="rewards">0.125 ETH</span>
+                                                    <span class="value">$428.12</span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="action-buttons">
+                                                    <button class="btn-icon" data-action="add" data-asset="eth">
+                                                        <i class="fas fa-plus"></i>
+                                                    </button>
+                                                    <button class="btn-icon" data-action="unstake" data-asset="eth">
+                                                        <i class="fas fa-unlock"></i>
+                                                    </button>
+                                                    <button class="btn-icon" data-action="claim" data-asset="eth">
+                                                        <i class="fas fa-gift"></i>
+                                                    </button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="asset-cell">
+                                                    <div class="crypto-icon sol">S</div>
+                                                    <div class="asset-info">
+                                                        <span class="asset-name">Solana</span>
+                                                        <span class="asset-symbol">SOL</span>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="amount-cell">
+                                                    <span class="amount">50 SOL</span>
+                                                    <span class="value">$5,122.50</span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <span class="apy-badge">7.3%</span>
+                                            </td>
+                                            <td>
+                                                <span class="date-cell">Mar 28, 2024</span>
+                                            </td>
+                                            <td>
+                                                <div class="rewards-cell">
+                                                    <span class="rewards">2.85 SOL</span>
+                                                    <span class="value">$292.02</span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="action-buttons">
+                                                    <button class="btn-icon" data-action="add" data-asset="sol">
+                                                        <i class="fas fa-plus"></i>
+                                                    </button>
+                                                    <button class="btn-icon" data-action="unstake" data-asset="sol">
+                                                        <i class="fas fa-unlock"></i>
+                                                    </button>
+                                                    <button class="btn-icon" data-action="claim" data-asset="sol">
+                                                        <i class="fas fa-gift"></i>
+                                                    </button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="asset-cell">
+                                                    <div class="crypto-icon ada">A</div>
+                                                    <div class="asset-info">
+                                                        <span class="asset-name">Cardano</span>
+                                                        <span class="asset-symbol">ADA</span>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="amount-cell">
+                                                    <span class="amount">5,000 ADA</span>
+                                                    <span class="value">$2,900.00</span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <span class="apy-badge">4.8%</span>
+                                            </td>
+                                            <td>
+                                                <span class="date-cell">Apr 05, 2024</span>
+                                            </td>
+                                            <td>
+                                                <div class="rewards-cell">
+                                                    <span class="rewards">240 ADA</span>
+                                                    <span class="value">$139.20</span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="action-buttons">
+                                                    <button class="btn-icon" data-action="add" data-asset="ada">
+                                                        <i class="fas fa-plus"></i>
+                                                    </button>
+                                                    <button class="btn-icon" data-action="unstake" data-asset="ada">
+                                                        <i class="fas fa-unlock"></i>
+                                                    </button>
+                                                    <button class="btn-icon" data-action="claim" data-asset="ada">
+                                                        <i class="fas fa-gift"></i>
+                                                    </button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Rewards History Tab -->
+                <div class="tab-content" id="rewards-history">
+                    <div class="rewards-container">
+                        <div class="rewards-summary">
+                            <div class="summary-card">
+                                <div class="summary-icon">
+                                    <i class="fas fa-history"></i>
+                                </div>
+                                <div class="summary-info">
+                                    <span class="summary-label">Total Rewards Earned</span>
+                                    <span class="summary-value">$859.34</span>
+                                </div>
+                            </div>
+                            <div class="summary-card">
+                                <div class="summary-icon">
+                                    <i class="fas fa-calendar-alt"></i>
+                                </div>
+                                <div class="summary-info">
+                                    <span class="summary-label">This Month</span>
+                                    <span class="summary-value">$48.75</span>
+                                </div>
+                            </div>
+                            <div class="summary-card">
+                                <div class="summary-icon">
+                                    <i class="fas fa-chart-line"></i>
+                                </div>
+                                <div class="summary-info">
+                                    <span class="summary-label">Estimated Yearly</span>
+                                    <span class="summary-value">$585.00</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="rewards-history">
+                            <div class="table-header">
+                                <h3>Rewards History</h3>
+                                <div class="table-controls">
+                                    <select class="filter-select" id="rewardsFilter">
+                                        <option value="all">All Assets</option>
+                                        <option value="eth">Ethereum</option>
+                                        <option value="sol">Solana</option>
+                                        <option value="ada">Cardano</option>
+                                    </select>
+                                    <button class="btn btn-outline" id="exportRewards">
+                                        <i class="fas fa-download"></i> Export
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="table-container">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Date</th>
+                                            <th>Asset</th>
+                                            <th>Type</th>
+                                            <th>Amount</th>
+                                            <th>Value (USD)</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Today, 12:30</td>
+                                            <td>
+                                                <div class="asset-cell">
+                                                    <div class="crypto-icon eth">E</div>
+                                                    <span>Ethereum</span>
+                                                </div>
+                                            </td>
+                                            <td><span class="badge success">Staking Reward</span></td>
+                                            <td>0.0125 ETH</td>
+                                            <td>$42.81</td>
+                                            <td><span class="status completed">Completed</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Mar 15, 2024</td>
+                                            <td>
+                                                <div class="asset-cell">
+                                                    <div class="crypto-icon sol">S</div>
+                                                    <span>Solana</span>
+                                                </div>
+                                            </td>
+                                            <td><span class="badge success">Staking Reward</span></td>
+                                            <td>0.95 SOL</td>
+                                            <td>$97.36</td>
+                                            <td><span class="status completed">Completed</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Mar 10, 2024</td>
+                                            <td>
+                                                <div class="asset-cell">
+                                                    <div class="crypto-icon ada">A</div>
+                                                    <span>Cardano</span>
+                                                </div>
+                                            </td>
+                                            <td><span class="badge success">Staking Reward</span></td>
+                                            <td>80 ADA</td>
+                                            <td>$46.40</td>
+                                            <td><span class="status completed">Completed</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Feb 28, 2024</td>
+                                            <td>
+                                                <div class="asset-cell">
+                                                    <div class="crypto-icon eth">E</div>
+                                                    <span>Ethereum</span>
+                                                </div>
+                                            </td>
+                                            <td><span class="badge warning">Unstaking</span></td>
+                                            <td>-0.5 ETH</td>
+                                            <td>-$1,712.50</td>
+                                            <td><span class="status pending">Processing</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Staking Calculator -->
+            <div class="staking-calculator">
+                <h2 class="section-title">Staking Calculator</h2>
+                <div class="calculator-content">
+                    <div class="calculator-form">
+                        <div class="form-group">
+                            <label for="calcAsset">Select Asset</label>
+                            <select id="calcAsset" class="form-control">
+                                <option value="eth">Ethereum (ETH) - 5.2% APY</option>
+                                <option value="sol">Solana (SOL) - 7.3% APY</option>
+                                <option value="ada">Cardano (ADA) - 4.8% APY</option>
+                                <option value="dot">Polkadot (DOT) - 12.5% APY</option>
+                                <option value="bnb">BNB - 3.2% APY</option>
+                                <option value="avax">Avalanche (AVAX) - 9.1% APY</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="calcAmount">Staking Amount (USD)</label>
+                            <input type="number" id="calcAmount" class="form-control" value="1000" min="10">
+                        </div>
+                        <div class="form-group">
+                            <label for="calcDuration">Staking Duration (Months)</label>
+                            <input type="range" id="calcDuration" class="form-control" min="1" max="36" value="12">
+                            <div class="range-labels">
+                                <span>1 Month</span>
+                                <span id="durationValue">12 Months</span>
+                                <span>36 Months</span>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary" id="calculateBtn">
+                            <i class="fas fa-calculator"></i> Calculate Rewards
+                        </button>
+                    </div>
+                    <div class="calculator-results">
+                        <div class="result-header">
+                            <h3>Estimated Returns</h3>
+                            <div class="result-apy">5.2% APY</div>
+                        </div>
+                        <div class="result-details">
+                            <div class="result-item">
+                                <span class="result-label">Initial Investment</span>
+                                <span class="result-value" id="initialInvestment">$1,000.00</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="result-label">Total Rewards</span>
+                                <span class="result-value" id="totalRewards">$52.00</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="result-label">Total Value</span>
+                                <span class="result-value" id="totalValue">$1,052.00</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="result-label">Monthly Rewards</span>
+                                <span class="result-value" id="monthlyRewards">$4.33</span>
+                            </div>
+                        </div>
+                        <div class="result-chart">
+                            <div class="chart-placeholder">
+                                <!-- Chart would be rendered here -->
+                                <div class="chart-bars">
+                                    <div class="chart-bar" style="height: 40%; background: #0A84FF;"></div>
+                                    <div class="chart-bar" style="height: 100%; background: #00D4AA;"></div>
+                                </div>
+                                <div class="chart-labels">
+                                    <span>Initial</span>
+                                    <span>After 1 Year</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content"> 
+                <div class="footer-brand">
+                    <div class="logo">
+                        <svg width="30" height="30" viewBox="0 0 30 30">
+                            <path d="M6,15 Q11,3 15,15 Q19,27 24,15" 
+                                  stroke="#00D4AA" 
+                                  stroke-width="2" 
+                                  fill="none"/>
+                        </svg>
+                        <span>FP<span style="color:#0A84FF">CryptoTrade</span></span>
+                    </div>
+                    <p>Earn Passive Income with Crypto Staking</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <a href="#"><i class="fab fa-discord"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <div class="link-group">
+                        <h4>Staking</h4>
+                        <a href="#">How it Works</a>
+                        <a href="#">Available Pools</a>
+                        <a href="#">APY Rates</a>
+                        <a href="#">Staking Guide</a>
+                    </div>
+                    <div class="link-group">
+                        <h4>Earn</h4>
+                        <a href="yield-farming.html">Yield Farming</a>
+                        <a href="portfolio.html">Portfolio</a>
+                        <a href="rewards.html">Rewards</a>
+                        <a href="referral.html">Referral Program</a>
+                    </div>
+                    <div class="link-group">
+                        <h4>Support</h4>
+                        <a href="help.html">Help Center</a>
+                        <a href="contact.html">Contact Us</a>
+                        <a href="terms.html">Terms</a>
+                        <a href="privacy.html">Privacy</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 FP-CryptoTrade. All rights reserved.</p>
+                <p class="disclaimer">Cryptocurrency staking involves risk. APY rates are subject to change.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="staking.js"></script>
+</body>
+</html>
